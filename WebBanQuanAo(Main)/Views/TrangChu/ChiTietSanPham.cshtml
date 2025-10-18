@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+<link href="~/Content/TrangLamWeb/chitietsanpham.css" rel="stylesheet" />
+
+
+
+<section class="trangchitiet">
+    <div class="trangtrai">
+        <ul class="menu-hinh">
+            <li>
+                <div class="hinhtren">
+                    <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnu/main/peplum1.png" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnu/main/peplum2.png" />
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnu/main/peplum3.png" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="trangphai">
+        
+            <div class="product-h">
+                <h1>Áo kiểu peplum</h1>
+                <button class="yeuthich"><i class="fa-regular fa-heart"></i></button>
+            </div>
+
+            <div class="price">₫449,000</div>
+
+            <div class="nutgiohang">
+                <button type="button"
+                        class="themgiohang"
+                        data-id="AP001"
+                        data-name="Áo kiểu peplum"
+                        data-price="499000"
+                        data-image="@Url.Content("https://raw.githubusercontent.com/Nomu-276/sanphamnu/main/peplum4.png")">
+                    Thêm vào giỏ hàng
+                </button>
+
+            </div>
+        <div class="description">
+            <h1>Mô tả</h1>
+            <p>Áo kiểu ngắn bằng vải dệt thoi có cổ tròn, sâu và mở chữ V nhỏ có hai cặp dây buộc mảnh ở giữa ngực. Tay ngắn, bồng có cổ tay viền diềm nhún với chun co giãn mảnh. Mảng may xếp nếp ở eo và peplum xoè, viền diềm nhún.</p>
+        </div>
+        
+    </div>
+</section>
+<script src="~/Scripts/TrangLamWeb/cart.js"></script>

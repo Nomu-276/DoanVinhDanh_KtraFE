@@ -1,0 +1,128 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    margin:0;
+    padding:0;
+}
+
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    padding: 20px;
+    max-width: 2000px;
+    
+}
+.header-thanhtoan{
+    margin-top:100px;
+}
+section{
+    display:flex;
+    justify-content:space-between;   
+}
+.left{
+    width:700px;
+}
+.left h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-top:20px
+}
+.section {  
+    margin-bottom: 20px;
+    padding: 20px;
+    
+}
+
+label {
+    font-weight: bold;
+    margin:10px 0;
+}
+
+h1 {
+    text-align: center;
+    
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+input, select, textarea {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    
+}
+
+button {    
+    color:white;
+    padding: 10px 15px;
+    border:1px solid black;
+    background:black;  
+    cursor: pointer;
+    font-weight:500;
+}
+table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.PaymentOptions {
+    display: flex;
+    gap: 20px;
+}
+.payment-options input[type="radio"] {
+    width: auto;
+}
+.creditcard {
+    grid-template-columns: 1fr 1fr;
+    display: none;
+    gap: 15px;
+}
+
+.credit-card {
+    display: grid;
+}
+.donhang{
+    width:300px;
+    margin-top:30px;
+    margin-right:10px;
+}
+.fm-donHang {
+    padding: 20px;
+    
+    
+}
+.fm-donhang p {
+    display: flex;
+    margin: 5px 0;
+    justify-content: space-between;
+}
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+}
+#addItemForm {
+    display: none;
+}
+.form-submit button {
+    font-size: 1.1em;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color:#000000;
+    color:white;
+    text-transform:uppercase;
+    font-weight:600
+}

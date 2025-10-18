@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "TaiKhoan";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<div class="account-page" style="padding:120px 20px 40px;">
+    <div class="formdangnhap" style="max-width:620px; margin:0 auto;">
+        <div class="form-h">
+            <h4>Thông tin tài khoản</h4>
+        </div>
+        <div class="form-b">
+            <div class="fm-form">
+                <h2>Xin chào</h2>
+                <div style="margin:12px 0;">
+                    <strong>Email:</strong> <span id="acc-email">-</span>
+                </div>
+                <div style="margin:6px 0;">
+                    <strong>Ngày sinh:</strong> <span id="acc-dob">-</span>
+                </div>
+                <div style="margin:6px 0;">
+                    <strong>Tham gia từ:</strong> <span id="acc-created">-</span>
+                </div>
+
+                <div style="margin-top:18px;">
+                    <button id="btn-logout" style="padding:10px 16px; background:#000; color:#fff; border:0; border-radius:6px; cursor:pointer;">
+                        Đăng xuất
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/TrangLamWeb/taikhoan.js"></script>
+

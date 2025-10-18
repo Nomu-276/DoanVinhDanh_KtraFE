@@ -1,0 +1,97 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+.trangchitiet {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.trangtrai {
+    width: 50%;
+}
+.menu-hinh li img{
+    width:100%;
+    height:auto;
+}
+.trangphai {
+    width: 50%;
+    
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.product-h {
+    display: flex;
+    width:500px;
+    margin:100px 250px 0;
+}
+.product-h h1{
+
+    font-size:25px;
+    font-weight:200;
+ }
+.product-h button{
+    margin-left:95px;
+    border:0;
+    background-color:white;
+    padding:5px 5px;
+    font-size:20px;
+}
+
+.price {
+    margin:0 250px;
+    font-size: 20px;
+    font-weight: 700;
+    padding-top:5px;
+}
+.nutgiohang {
+    cursor:pointer;
+    width: 300px;
+    height: 100px;
+    margin: 0 250px;
+    transition:all 0.5s;
+}
+    .nutgiohang button {
+        width: 100%;
+        margin: 20px 0;
+        padding: 15px 20px;
+        font-size: 17px;
+        font-weight: 400;
+        color: white;
+        background-color: #000000;
+        text-transform: uppercase;
+        
+    }
+.nutgiohang button:hover{
+    background-color:white;
+    color:black;
+}
+.description{
+    display:grid;
+    grid-template-columns:1fr;
+    margin-left:250px;
+    padding-bottom:150px;
+    text-align:left;
+    margin-right:50px;
+    
+}
+.description h1{
+    font-size:20px;
+    width:100%;
+    font-weight:600;
+    margin-bottom:10px;
+}
+.description p{
+    font-weight:500;
+    
+    font-size:19px;
+    width:100%;
+}
+
+

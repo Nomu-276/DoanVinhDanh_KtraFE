@@ -1,0 +1,204 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/*HEADER*/
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+
+#dautrang {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:10px 0;
+    background-color:white;
+}
+.logo{
+    max-width:150px;
+    
+}
+.logo img{
+    max-width:100%;
+    height:auto;
+}
+
+#menuleft{
+    
+}
+.fm-menu {
+    display: flex;
+    
+}
+
+.fm-menu li{
+    list-style:none;
+}
+.fm-menu a{
+    text-transform: uppercase;
+    padding:15px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:15px;
+    display:block;
+    /*    padding trên dưới*/
+    display:block;
+    color:#737479;
+}
+.fm-menu li:hover a{
+    color:#000000;
+    font-weight:bold;
+}
+/*phần search-bar*/
+.search{
+    margin-right:25px;
+    margin-top:10px;
+    background-color:white;
+    
+}
+.search input {
+    padding:5px 10px;
+    border:0;
+    font-size:15px;
+    border-bottom:1px solid #737479;
+    font-weight:400;
+
+}
+.search button{
+    cursor:pointer;
+    padding:5px 10px;
+    font-size:16px;
+    border:0;
+    background-color:white;
+    color:#737479;
+}
+/*giỏhang*/
+
+.cart-link {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 3px;
+    font-size: 12px;
+    line-height: 1;
+    min-width: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    
+}
+
+.cart-preview {
+    position: absolute;
+    right: 0;
+    top: 36px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: none;
+    z-index: 2000;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.cart-link.open .cart-preview {
+    display: block;
+}
+
+.cart-preview .item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+    .cart-preview .item:last-child {
+        border-bottom: none;
+    }
+
+.cart-preview img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+
+.cart-preview .info {
+    flex: 1;
+}
+
+    .cart-preview .info .name {
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .cart-preview .info .meta {
+        color: #666;
+        font-size: 12px;
+    }
+
+.cart-preview .empty {
+    text-align: center;
+    color: #666;
+    padding: 16px 0;
+}
+
+/* nhỏ: điều chỉnh vị trí badge cho icon lớn hơn */
+#cart-link i {
+    font-size: 18px;
+}
+/*FOOTER*/
+#chantrang {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    height: 300px;
+    box-sizing: border-box;
+}
+.menufoot{
+    margin-left:25px;
+
+}
+.fm-menufoot {
+    list-style: none;
+    
+}
+.fm-menufoot li{
+    display:block;
+    padding:5px 0;
+    flex-basis:25%;
+}
+.fm-menufoot a{
+    text-decoration:none;
+    color:#737479;
+
+}
+.fm-menufoot li:hover a{
+    text-decoration:underline;
+    color:#000000;
+    font-weight:bold;
+}
+.h2-foot {
+    color:#000000;
+    font-weight: bold;
+    font-size: 15px;
+    margin:10px 0;
+}

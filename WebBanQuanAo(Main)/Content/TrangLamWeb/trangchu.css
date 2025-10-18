@@ -1,0 +1,130 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+.gtsanpham {
+    max-width: 3000px;
+    display:grid;
+    grid-template-columns:1fr;
+}
+/*BANNER*/
+#banner {
+    max-width: 2000px;
+   
+}
+
+#banner a{
+    text-decoration:none;
+}
+.fm-banner img{
+    width:100%;
+    height:auto;
+}
+.mua-ngay-banner{
+    text-align: right;
+    text-transform: uppercase;
+    margin: 30px 15px;  
+    font-weight: bold;
+    font-size: 14px;
+    color: #737479;
+    text-decoration:underline;
+}
+.mua-ngay {
+    text-transform: uppercase;
+    margin: 30px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #737479;
+    text-decoration: underline;
+}
+
+/*image*/
+
+#img-sanphamnu {
+    display:flex;
+}
+#img-sanphamnu a{
+    text-decoration:none;
+}
+
+.hinh img{
+    width:760px;
+    height:auto;
+}
+.info {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    color:#737479;
+    margin:10px 0;
+}
+.info:hover{
+    color:#000000;
+    font-weight: bold;
+}
+/*SẢN PHẨM MỚI*/
+.sanphammoi{
+    max-width:2000px;
+    
+}
+.sanphamoi-bar {
+    display: flex;
+    padding:10px 20px;
+    justify-content:space-between;
+}
+.h-sanphamoi {
+    width: 50%;
+    height: auto;
+    padding: 20px 0;
+}
+.h-sanphamoi h2{
+    
+    color:#000000;
+    font-size:18px;
+    font-weight:800;
+}
+
+
+.xemtatca{
+    text-align:right;
+    width:50%;
+    height:auto;
+    padding:20px 0;
+}
+.xemtatca a{
+
+    text-decoration:underline;
+    color:#737479;
+    font-size:15px;
+    font-weight:800;
+
+}
+ .xemtatca a:hover {
+        color: #000000;
+        font-size: 18px;
+ }
+.fm-sanphammoi{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    justify-content:space-between;
+    list-style:none;
+    text-align:center;
+
+}
+.fm-sanphammoi lì{
+   
+    
+}
+.fm-sanphammoi li img{
+    width:300px;
+    height:auto;
+}
+
+
+

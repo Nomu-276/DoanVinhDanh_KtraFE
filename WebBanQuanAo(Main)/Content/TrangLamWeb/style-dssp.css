@@ -1,0 +1,49 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+#trangsanpham{
+    max-width:3000px;
+    margin:50px auto 0;
+
+}
+.product {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+.product li{
+    flex-basis:25%;
+    
+}
+.product li img{
+    max-width:100%;
+    height:auto;
+    
+}
+.product li .product-info{
+    padding:10px 0px;
+    
+}
+.product li .product-info a{
+    display:block;
+    text-decoration:none;
+    
+}
+.product li .product-info a.product-name {
+    color: #000000;
+    padding:3px 0px;
+}
+.product li .product-info .product-price {
+    color: #000000;
+    padding: 2px 0px;
+    font-weight: 600;
+}

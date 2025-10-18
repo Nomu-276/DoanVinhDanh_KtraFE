@@ -1,0 +1,35 @@
+﻿<link href="~/Content/TrangLamWeb/dangki.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<div class="formdangki">
+    <div class="form-h">
+        <h4>Trở thành thành viên NOMIE</h4>
+        
+    </div>
+    <div class="form-b">
+        <form class="fm-form" action="#" method="post">
+            <div class="form-mail">
+                <label class="nhan" for="mail">Email</label>
+                <div><input type="email" name="mail" placeholder="Email" /></div>
+            </div>
+            <div class="form-pass">
+                <label class="nhan" for="pass">Tạo mật khẩu</label>
+                <div><input type="password" name="pass" placeholder="Mật khẩu" /></div>
+            </div>
+            <div class="form-date">
+                <lable class="nhan" for="ngaysinh">Ngày tháng năm sinh</lable>
+                <div><input type="date" name="ngaysinh" /></div>
+            </div>
+            <div class="form-cont">
+                <button type="submit">Trở thành thành viên của nomie</button>
+            </div>
+            <div class="form-return">
+                <a href="DangNhap"><button type="button">Quay lại đăng nhập</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/Scripts/TrangLamWeb/dangki.js"></script>

@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<link href="~/Content/TrangLamWeb/giohang.css" rel="stylesheet" />
+
+@{
+
+    var serverCart = Session["Cart"] as System.Collections.IEnumerable;
+    bool hasServerCart = false;
+    if (serverCart != null)
+    {
+        foreach (var _ in serverCart) { hasServerCart = true; break; }
+    }
+}
+
+<div class="cart-page">
+    <h1>Giỏ hàng</h1>
+
+    @if (hasServerCart)
+    {
+        <table class="cart-table" id="cart-table-server">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (dynamic item in serverCart)
+                {
+                    var id = item.id ?? item.Id ?? "";
+                    var name = item.name ?? item.Name ?? "";
+                    var priceRaw = item.price ?? item.Price ?? 0;
+                    var qtyRaw = item.quantity ?? item.Quantity ?? 1;
+                    var image = item.image ?? item.Image ?? "";
+                    decimal price = 0;
+                    int qty = 1;
+                    decimal.TryParse(Convert.ToString(priceRaw), out price);
+                    int.TryParse(Convert.ToString(qtyRaw), out qty);
+                    <tr>
+                        <td>
+                            <div style="display:flex;align-items:center;">
+                                <img src="@Url.Content(Convert.ToString(image ?? ""))" alt="@name" style="width:70px;height:70px;object-fit:cover;margin-right:12px;" />
+                                <div>
+                                    <div style="font-weight:600;">@name</div>
+                                    <div style="font-size:12px;color:#666;">Mã: @(item.sku ?? item.Sku ?? "")</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>@String.Format("{0:C0}", price).Replace("$", "₫")</td>
+                        <td>@qty</td>
+                        <td>@String.Format("{0:C0}", price * qty).Replace("$", "₫")</td>
+                        <td>
+
+                            <form method="post" action="@Url.Action("RemoveFromCart","TrangChu")" style="display:inline;">
+                                <input type="hidden" name="id" value="@id" />
+                                <button type="submit" class="btn">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div id="cart-summary" class="cart-summary">
+            @{
+                // Tính tổng server-side
+                decimal subtotal = 0;
+                foreach (dynamic item in serverCart)
+                {
+                    decimal p = 0; int q = 1;
+                    decimal.TryParse(Convert.ToString(item.price ?? item.Price ?? 0), out p);
+                    int.TryParse(Convert.ToString(item.quantity ?? item.Quantity ?? 1), out q);
+                    subtotal += p * q;
+                }
+            }
+            <div>Giá sản phẩm: <span id="sub-total">@String.Format("{0:C0}", subtotal).Replace("$", "₫")</span></div>
+            <div>Phí giao hàng: <span id="shipping-fee">Miễn phí</span></div>
+            <div>Voucher giảm: <span id="voucher-amount">0₫</span></div>
+            <div class="total">Tổng cộng: <strong id="grand-total">@String.Format("{0:C0}", subtotal).Replace("$", "₫")</strong></div>
+            <div class="cart-actions">
+                <a class="btn" href="@Url.Action("TrangChu","TrangChu")">Tiếp tục mua sắm</a>
+                <a class="btn primary" id="go-to-checkout" href="@Url.Action("ThanhToan","TrangChu")">Thanh toán</a>
+            </div>
+        </div>
+    }
+    else
+    {
+      
+        <div id="cart-empty" class="info">Không có sản phẩm trong giỏ hàng.</div>
+
+        <table id="cart-table" class="cart-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="cart-body"></tbody>
+        </table>
+
+        <div id="cart-summary" class="cart-summary" style="display:none;">
+            <div>Giá sản phẩm: <span id="sub-total">0₫</span></div>
+            <div>Phí giao hàng: <span id="shipping-fee">0₫</span></div>
+            <div>Voucher giảm: <span id="voucher-amount">0₫</span></div>
+            <div class="total">Tổng cộng: <strong id="grand-total">0₫</strong></div>
+            <div class="cart-actions">
+                <a class="btn" href="@Url.Action("TrangChu","TrangChu")">Tiếp tục mua sắm</a>
+                <a class="btn primary" id="go-to-checkout" href="@Url.Action("ThanhToan","TrangChu")">Thanh toán</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+<script src="~/Scripts/TrangLamWeb/cart.js"></script>
+
+
+
+
