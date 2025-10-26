@@ -77,3 +77,5 @@ C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\obj\Debug\Web
 C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\obj\Debug\WebBanQu.58824E1F.Up2Date
 C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\obj\Debug\WebBanQuanAo(Main).dll
 C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\obj\Debug\WebBanQuanAo(Main).pdb
+C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\bin\EntityFramework.dll
+C:\Users\PC\OneDrive\Desktop\WebBanQuanAo(Main)\WebBanQuanAo(Main)\bin\EntityFramework.xml

@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|c:\\users\\pc\\onedrive\\desktop\\doanvinhdanh_ktrabe\\doanvinhdanh_ktrabe\\views\\trangchu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|solutionrelative:doanvinhdanh_ktrabe\\views\\trangchu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|c:\\users\\pc\\onedrive\\desktop\\doanvinhdanh_ktrabe\\doanvinhdanh_ktrabe\\controllers\\trangchucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|solutionrelative:doanvinhdanh_ktrabe\\controllers\\trangchucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|c:\\users\\pc\\onedrive\\desktop\\doanvinhdanh_ktrabe\\doanvinhdanh_ktrabe\\views\\shared\\layouttrangchu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{374C2F87-0705-47A0-B0D2-D6C51CE20E28}|DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE.csproj|solutionrelative:doanvinhdanh_ktrabe\\views\\shared\\layouttrangchu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 487,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Views\\TrangChu\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoanVinhDanh_KtraBE\\Views\\TrangChu\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Views\\TrangChu\\Index.cshtml",
+              "RelativeToolTip": "DoanVinhDanh_KtraBE\\Views\\TrangChu\\Index.cshtml",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAwIgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T16:51:00.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TrangChuController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Controllers\\TrangChuController.cs",
+              "RelativeDocumentMoniker": "DoanVinhDanh_KtraBE\\Controllers\\TrangChuController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Controllers\\TrangChuController.cs",
+              "RelativeToolTip": "DoanVinhDanh_KtraBE\\Controllers\\TrangChuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T16:50:43.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LayoutTrangChu.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Views\\Shared\\LayoutTrangChu.cshtml",
+              "RelativeDocumentMoniker": "DoanVinhDanh_KtraBE\\Views\\Shared\\LayoutTrangChu.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\DoanVinhDanh_KtraBE\\DoanVinhDanh_KtraBE\\Views\\Shared\\LayoutTrangChu.cshtml",
+              "RelativeToolTip": "DoanVinhDanh_KtraBE\\Views\\Shared\\LayoutTrangChu.cshtml",
+              "ViewState": "AgIAADsAAAAAAAAAAAAYwEwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-19T16:48:20.608Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

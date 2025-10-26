@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "XacNhanDonHang";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<link href="~/Content/TrangLamWeb/xacnhandonhang.css" rel="stylesheet" />
+
+<section class="xacnhan-donhang">
+    <div class="xn-container">
+        <div class="xn-card">
+            <h1>Đơn hàng của bạn đã được đặt</h1>
+            <p class="xn-sub">Cảm ơn bạn đã mua hàng. Chi tiết đơn hàng được hiển thị bên dưới.</p>
+
+            <div id="order-view" style="display:none;">
+                <div class="xn-meta">
+                    <div><strong>Mã đơn:</strong> <span id="orderId"></span></div>
+                    <div><strong>Ngày đặt:</strong> <span id="orderDate"></span></div>
+                    <div><strong>Trạng thái:</strong> <span id="orderStatus"></span></div>
+                </div>
+
+                <div class="xn-block">
+                    <h3>Thông tin khách hàng</h3>
+                    <div class="xn-grid">
+                        <div><strong>Họ tên</strong><div id="custName"></div></div>
+                        <div><strong>Điện thoại</strong><div id="custPhone"></div></div>
+                        <div><strong>Email</strong><div id="custEmail"></div></div>
+                    </div>
+                </div>
+
+                <div class="xn-block">
+                    <h3>Địa chỉ giao hàng</h3>
+                    <div id="shipCity"></div>
+                    <div id="shipAddress"></div>
+                </div>
+
+                <div class="xn-block">
+                    <h3>Sản phẩm</h3>
+                    <table class="xn-table" id="itemsTable">
+                        <thead>
+                            <tr><th>Sản phẩm</th><th>SL</th><th>Đơn giá</th><th>Thành tiền</th></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="xn-totals">
+                    <div><span>Tạm tính:</span><span id="subtotal"></span></div>
+                    <div><span>Giảm giá:</span><span id="voucherDiscount"></span></div>
+                    <div><span>Phí vận chuyển:</span><span id="deliveryFee"></span></div>
+                    <div class="xn-total"><span>Tổng:</span><span id="grandTotal"></span></div>
+                </div>
+
+                <div class="xn-actions">
+                    <button id="btnPrint" class="xn-btn">In hoá đơn</button>
+                    <a class="xn-btn ghost" href="TrangChu">Về trang chủ</a>
+                    <a class="xn-btn" href="LichSuDonHang">Lịch sử giao hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/TrangLamWeb/checkout.js"></script>
+<script>
+    (function () {
+        function formatVND(n) {
+            n = Number(n) || 0;
+            return '₫' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        var raw = null;
+        try { raw = localStorage.getItem('lastOrder'); } catch (e) { raw = null; }
+
+        if (!raw) {
+            document.getElementById('no-order').style.display = '';
+            return;
+        }
+
+        var order = null;
+        try { order = JSON.parse(raw); } catch (e) { order = null; }
+
+        if (!order) {
+            document.getElementById('no-order').style.display = '';
+            return;
+        }
+
+        document.getElementById('order-view').style.display = '';
+        document.getElementById('orderId').textContent = order.id || '';
+        document.getElementById('orderDate').textContent = order.createdAt ? (new Date(order.createdAt)).toLocaleString() : '';
+        document.getElementById('orderStatus').textContent = order.status || '';
+
+        document.getElementById('custName').textContent = (order.customer && order.customer.name) || '';
+        document.getElementById('custPhone').textContent = (order.customer && order.customer.phone) || '';
+        document.getElementById('custEmail').textContent = (order.customer && order.customer.email) || '';
+
+        document.getElementById('shipCity').textContent = (order.shipping && order.shipping.city) || '';
+        document.getElementById('shipAddress').textContent = (order.shipping && order.shipping.address) || '';
+
+        var tbody = document.querySelector('#itemsTable tbody');
+        tbody.innerHTML = '';
+        if (order.items && order.items.length) {
+            order.items.forEach(function (it) {
+                var price = Number(String(it.price).replace(/[^0-9\-]/g, '')) || 0;
+                var qty = parseInt(it.quantity || 0, 10) || 0;
+                var line = price * qty;
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + (it.name || '') + '</td>' +
+                    '<td class="center">' + qty + '</td>' +
+                    '<td class="right">' + formatVND(price) + '</td>' +
+                    '<td class="right">' + formatVND(line) + '</td>';
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.getElementById('subtotal').textContent = formatVND((order.totals && order.totals.subtotal) || 0);
+        document.getElementById('voucherDiscount').textContent = formatVND((order.totals && order.totals.voucher) || 0);
+        document.getElementById('deliveryFee').textContent = formatVND((order.totals && order.totals.delivery) || 0);
+        document.getElementById('grandTotal').textContent = formatVND((order.totals && order.totals.total) || 0);
+
+        document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
+
+        
+    })();
+</script>
+

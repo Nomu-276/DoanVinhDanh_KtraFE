@@ -1,0 +1,132 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+.xacnhan-donhang {
+    margin-top:100px;
+    padding: 28px 16px;
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    min-height: 70vh;
+}
+
+.xn-container {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.xn-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+    .xn-card h1 {
+        margin: 0 0 6px;
+        font-size: 22px;
+        color: #222;
+    }
+
+.xn-sub {
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.xn-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.xn-block {
+    margin-top: 12px;
+}
+
+.xn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.xn-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+    .xn-table th, .xn-table td {
+        padding: 8px 6px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    .xn-table th {
+        text-align: left;
+        color: #444;
+    }
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.xn-totals {
+    margin-top: 14px;
+    text-align: right;
+    color: #222;
+}
+
+    .xn-totals div {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        margin-bottom: 6px;
+    }
+
+.xn-total {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-top: 6px;
+}
+
+.xn-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.xn-btn {
+    background: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+    .xn-btn.ghost {
+        background: black;
+        color: white;
+        border: 1px solid #ddd;
+    }
+
+.xn-empty {
+    text-align: center;
+    padding: 18px;
+}

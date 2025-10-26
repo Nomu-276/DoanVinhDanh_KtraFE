@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "LichSuDonHang";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+<link href="~/Content/TrangLamWeb/lichsudonhang.css" rel="stylesheet" />
+
+<section class="ls-container">
+    <div class="ls-card">
+        <h1>Lịch sử đơn hàng</h1>
+        <p class="ls-sub">Danh sách các đơn hàng đã đặt. Nhấn "Xem" để mở trang xác nhận cho đơn tương ứng.</p>
+
+        <div id="noOrders" class="ls-empty" style="display:none;">
+            <p>Chưa có đơn hàng nào.</p>
+            <div class="nutquayve"><a class="ls-btn" href="TrangChu">Về trang chủ</a></div>
+            
+        </div>
+
+        <div id="ordersWrap" style="display:none;">
+            <table class="ls-table" id="ordersTable">
+                <thead>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Ngày</th>
+                        <th>Trạng thái</th>
+                        <th>Tổng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <div class="ls-actions">
+                <button id="clearAll" class="ls-btn ghost">Xóa tất cả</button>
+                <div class="nutquayve"><a class="ls-btn" href="TrangChu">Về trang chủ</a></div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>(function () {
+    function formatVND(n) {
+        n = Number(n) || 0;
+        return '₫' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function loadOrders() {
+        var raw = null;
+        try { raw = localStorage.getItem('orders'); } catch (e) { raw = null; }
+        if (!raw) return [];
+        try { var arr = JSON.parse(raw); return Array.isArray(arr) ? arr : []; } catch (e) { return []; }
+    }
+
+    function saveOrders(orders) {
+        try { localStorage.setItem('orders', JSON.stringify(orders)); } catch (e) { console.error(e); }
+    }
+
+    function render() {
+        var orders = loadOrders();
+        var wrap = document.getElementById('ordersWrap');
+        var noEl = document.getElementById('noOrders');
+        var tbody = document.querySelector('#ordersTable tbody');
+        if (!orders || orders.length === 0) {
+            wrap.style.display = 'none';
+            noEl.style.display = '';
+            return;
+        }
+        noEl.style.display = 'none';
+        wrap.style.display = '';
+        tbody.innerHTML = '';
+        orders.forEach(function (o) {
+            var tr = document.createElement('tr');
+            var date = o.createdAt ? (new Date(o.createdAt)).toLocaleString() : '';
+            var total = (o.totals && o.totals.total) ? o.totals.total : (o.totals && o.totals.subtotal) || 0;
+            tr.innerHTML =
+                '<td>' + (o.id || '') + '</td>' +
+                '<td>' + date + '</td>' +
+                '<td>' + (o.status || '') + '</td>' +
+                '<td class="right">' + formatVND(total) + '</td>' +
+                '<td class="actions">' +
+                    '<button class="ls-btn view" data-id="' + (o.id || '') + '">Xem</button> ' +
+                    '<button class="ls-btn cancel" data-id="' + (o.id || '') + '">Hủy</button>' +
+                '</td>';
+            tbody.appendChild(tr);
+        });
+
+        // attach handlers
+        Array.prototype.slice.call(document.querySelectorAll('.ls-btn.view')).forEach(function (b) {
+            b.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                var orders = loadOrders();
+                var order = orders.find(function(x){ return x.id === id; });
+                if (!order) { alert('Không tìm thấy đơn hàng'); return; }
+                try { localStorage.setItem('lastOrder', JSON.stringify(order)); } catch(e){ console.error(e); }
+                window.location.href = '/TrangChu/XacNhanDonHang';
+            });
+        });
+        Array.prototype.slice.call(document.querySelectorAll('.ls-btn.cancel')).forEach(function (b) {
+            b.addEventListener('click', function () {
+                var id = this.getAttribute('data-id');
+                var orders = loadOrders();
+                var idx = orders.findIndex(function(x){ return x.id === id; });
+                if (idx === -1) { alert('Không tìm thấy đơn hàng'); return; }
+                if (!confirm('Bạn có chắc chắn muốn hủy đơn này?')) return;
+                orders[idx].status = 'Đã hủy';
+                saveOrders(orders);
+                render();
+            });
+        });
+    }
+
+    document.getElementById('clearAll').addEventListener('click', function () {
+        if (!confirm('Xóa tất cả lịch sử đơn hàng?')) return;
+        try { localStorage.removeItem('orders'); } catch (e) { console.error(e); }
+        render();
+    });
+
+    render();
+})();</script>
+

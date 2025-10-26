@@ -74,7 +74,7 @@
                         <input type="radio" name="PtThanhToan" value="credit" checked onclick="togglePaymentFields()"> Credit Card
                     </label>
                     <label>
-                        <input type="radio" name="PtThanhToan" value="momo" onclick="togglePaymentFields()"> Momo
+                        <input type="radio" name="PtThanhToan" value="momo" onclick="togglePaymentFields()"> Thanh toán khi nhận hàng
                     </label>
                 </div>
                 <div id="creditcard" class="credit-card">
@@ -92,7 +92,7 @@
                 </div>
 
                 <div id="momo" class="creditcard" style="display: none;">
-                    <p>Nhập số điện thoại:<input type="tel" id="sdt"></p>
+                    
                 </div>
             </form>
         </div>
@@ -107,8 +107,9 @@
             <p>Voucher giảm giá: - $<span id="voucherDiscount">0.00</span></p>
             <p class="total">Total Amount: $<span id="totalAmount">0.00</span></p>
         </div>
+        
         <div class="form-submit">
-            <button type="submit" onclick="submitOrder()">Hoàn tất ngay</button>
+            <button type="submit" onclick="submitOrder()" >Hoàn tất ngay</button>
         </div>
 
     </div>

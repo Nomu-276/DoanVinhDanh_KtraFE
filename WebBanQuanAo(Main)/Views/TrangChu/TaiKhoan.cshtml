@@ -4,8 +4,35 @@
     Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
 }
 
-<div class="account-page" style="padding:120px 20px 40px;">
-    <div class="formdangnhap" style="max-width:620px; margin:0 auto;">
+<style>
+    .account-page {
+        padding: 120px 20px 40px;
+    }
+
+    .formdangnhap {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    .lichsugiaohang{
+        text-decoration: none;
+        color:gray;
+        font-weight:700;
+    }
+    .lichsugiaohang:hover{
+        color:black;
+    }
+    #btn-logout {
+        padding: 10px 16px;
+        background: #000;
+        color: #fff;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+<div class="account-page" >
+    <div class="formdangnhap">
         <div class="form-h">
             <h4>Thông tin tài khoản</h4>
         </div>
@@ -21,9 +48,11 @@
                 <div style="margin:6px 0;">
                     <strong>Tham gia từ:</strong> <span id="acc-created">-</span>
                 </div>
-
+                <div style="margin:10px 0;">
+                    <a href="LichSuDonHang" class="lichsugiaohang">Lịch sử giao hàng </a>
+                </div>
                 <div style="margin-top:18px;">
-                    <button id="btn-logout" style="padding:10px 16px; background:#000; color:#fff; border:0; border-radius:6px; cursor:pointer;">
+                    <button id="btn-logout">
                         Đăng xuất
                     </button>
                 </div>

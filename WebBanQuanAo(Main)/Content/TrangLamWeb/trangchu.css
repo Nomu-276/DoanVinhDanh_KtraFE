@@ -47,14 +47,19 @@ body {
 /*image*/
 
 #img-sanphamnu {
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    
 }
 #img-sanphamnu a{
+
     text-decoration:none;
 }
 
+
 .hinh img{
-    width:760px;
+
+    width:100%;
     height:auto;
 }
 .info {
@@ -112,7 +117,7 @@ body {
 .fm-sanphammoi{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    justify-content:space-between;
+    
     list-style:none;
     text-align:center;
 
@@ -122,7 +127,7 @@ body {
     
 }
 .fm-sanphammoi li img{
-    width:300px;
+    width:100%;
     height:auto;
 }
 

@@ -243,9 +243,7 @@
         }
     }
 
-    
     function submitOrder(ev) {
-        
         if (ev && ev.preventDefault) ev.preventDefault();
 
         var cart = getCart();
@@ -254,7 +252,6 @@
             return;
         }
 
-        
         var fullName = document.querySelector('#ThongTin input[type="text"]') ? document.querySelector('#ThongTin input[type="text"]').value.trim() : '';
         var phone = document.getElementById('Đt') ? document.getElementById('Đt').value.trim() : '';
         var email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
@@ -266,7 +263,6 @@
             return;
         }
 
-        
         var pay = document.querySelector('input[name="PtThanhToan"]:checked');
         if (!pay) {
             alert('Vui lòng chọn phương thức thanh toán.');
@@ -274,6 +270,9 @@
         }
 
         var order = {
+            id: 'ORD' + Date.now(),
+            createdAt: new Date().toISOString(),
+            status: 'Chờ giao',
             items: cart,
             customer: { name: fullName, phone: phone, email: email },
             shipping: { city: city, address: address },
@@ -284,7 +283,6 @@
             }
         };
 
-        
         var subtotal = order.totals.subtotal;
         var voucherDiscount = 0;
         if (voucherPercent && voucherPercent > 0) voucherDiscount = Math.round(subtotal * (voucherPercent / 100));
@@ -296,16 +294,29 @@
         order.totals.delivery = delivery;
         order.totals.total = grandTotal;
 
-        
-        console.log('Placing order', order);
+        try {
+            localStorage.setItem('lastOrder', JSON.stringify(order));
 
-        
-        alert('Đặt hàng thành công. Tổng: ' + formatVND(grandTotal));
-     
-        localStorage.removeItem(CART_KEY);
+            var orders = [];
+            try {
+                var raw = localStorage.getItem('orders');
+                orders = raw ? JSON.parse(raw) : [];
+                if (!Array.isArray(orders)) orders = [];
+            } catch (e) {
+                orders = [];
+            }
+            orders.unshift(order);
+            localStorage.setItem('orders', JSON.stringify(orders));
+
+            localStorage.removeItem(CART_KEY);
+        } catch (e) {
+            console.error('Could not persist order', e);
+        }
+
         renderCart();
 
-      
+        // Redirect to confirmation page
+        window.location.href = '/TrangChu/XacNhanDonHang';
     }
 
     function init() {

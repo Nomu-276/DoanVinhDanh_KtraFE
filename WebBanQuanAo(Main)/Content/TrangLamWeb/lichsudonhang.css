@@ -1,0 +1,95 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+}
+.ls-container {
+    margin-top:100px;
+    padding: 28px 16px;
+    font-family: Arial, sans-serif;
+    background: #f5f6f7;
+    min-height: 60vh;
+}
+
+.ls-card {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+    .ls-card h1 {
+        margin: 0 0 6px;
+        font-size: 22px;
+        color: #222;
+    }
+
+.ls-sub {
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.ls-empty {
+    text-align: center;
+    padding: 28px;
+}
+
+.ls-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+    .ls-table th, .ls-table td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    .ls-table th {
+        text-align: left;
+        color: #444;
+        background: #fafafa;
+    }
+
+.right {
+    text-align: right;
+}
+
+.actions {
+    white-space: nowrap;
+}
+
+.ls-actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+.nutquayve{
+    margin-top:20px;
+}
+.ls-btn {
+    background: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+    .ls-btn.ghost {
+        background-color: black;
+        color:white;
+        border: 1px solid #ddd;
+        
+    }
