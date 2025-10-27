@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+<link href="~/Content/TrangLamWeb/dangnhap.css" rel="stylesheet" />
+  
+<div class="form-b">
+    <div class="form-h">
+        <h4>Đăng Nhập</h4>
+    </div>
+    <form class="fm-form" action="#" method="post">
+        <h2 class="">Đăng nhập bằng email của bạn hoặc <a href="DangKi">đăng ký</a> để trở thành <br />thành viên NOMIE.</h2>
+        <div class="form-mail">
+            <label class="nhan" for="mail">Email</label>
+            <div><input type="email" name="mail" placeholder="Email" /></div>
+        </div>
+        <div class="form-pass">
+            <label class="nhan" for="pass">Mật khẩu</label>
+            <div><input type="password" name="pass" placeholder="Mật khẩu" /></div>
+        </div>
+        <div class="form-cont">
+            <button type="submit">Tiếp tục</button>
+        </div>
+    </form>
+</div>    
+
+
+<script src="~/Scripts/TrangLamWeb/dangnhap.js"></script>
