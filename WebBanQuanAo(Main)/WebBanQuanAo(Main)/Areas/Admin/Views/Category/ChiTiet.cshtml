@@ -1,0 +1,32 @@
+﻿@model WebBanQuanAo_Main_.Models.Category
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Thông tin chi tiết của danh mục</h2>
+@using (Html.BeginForm("ChiTiet", "Category"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.IDCate)
+
+            </th>
+            <td>
+                @Html.EditorFor(m => m.IDCate, new { htmlAttributes = new { @readonly = "readonly" } })
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.NameCate)
+
+            </th>
+            <td>
+                @Html.EditorFor(m => m.NameCate, new { htmlAttributes = new { @readonly = "readonly" } })
+            </td>
+        </tr>
+    </table>
+}
+@Html.ActionLink("Quay về danh sách", "DanhSachDanhMuc", null, new { @class = "btn btn-success" })

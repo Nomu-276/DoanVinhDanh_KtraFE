@@ -1,4 +1,5 @@
-﻿* {
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
     margin: 0;
     padding: 0;
 }
@@ -25,11 +26,11 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
-    .ls-card h1 {
-        margin: 0 0 6px;
-        font-size: 22px;
-        color: #222;
-    }
+.ls-card h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #222;
+}
 
 .ls-sub {
     color: #666;
@@ -47,17 +48,17 @@ body {
     margin-top: 8px;
 }
 
-    .ls-table th, .ls-table td {
-        padding: 10px 8px;
-        border-bottom: 1px solid #eee;
-        font-size: 14px;
-    }
+.ls-table th, .ls-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
 
-    .ls-table th {
-        text-align: left;
-        color: #444;
-        background: #fafafa;
-    }
+.ls-table th {
+    text-align: left;
+    color: #444;
+    background: #fafafa;
+}
 
 .right {
     text-align: right;
@@ -87,9 +88,9 @@ body {
     margin-top: 20px;
 }
 
-    .ls-btn.ghost {
-        background-color: black;
-        color:white;
-        border: 1px solid #ddd;
+.ls-btn.ghost {
+    background-color: black;
+    color:white;
+    border: 1px solid #ddd;
         
-    }
+}

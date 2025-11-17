@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.Category>
+
+@{
+    ViewBag.Title = "DanhSachDanhMuc";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>DANH SÁCH DANH MỤC SẢN PHẨM</h2>
+@Html.ActionLink("Thêm mới", "Them", null, new { @class = "btn btn-success" })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.IDCate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.NameCate)
+        </th>
+        <th>Chức năng</th>
+    </tr>
+    @foreach (var cate in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayName(cate.IDCate)
+            </td>
+            <td>
+                @Html.DisplayName(cate.NameCate)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Sua", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Xoa", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Chi tiết", "ChiTiet", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-dark" })
+            </td>
+        </tr>
+    }
+</table>
+

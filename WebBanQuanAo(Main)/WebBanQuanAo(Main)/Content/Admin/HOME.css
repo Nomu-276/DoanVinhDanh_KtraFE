@@ -1,0 +1,83 @@
+﻿body {
+}
+/* Banner */
+.main-banner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Hai banner cột trái phải */
+.double-banner img {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
+.banner-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.viewall {
+    text-align: right;
+}
+
+    .viewall a {
+        color: gray;
+        font-size: 20px;
+    }
+
+        .viewall a:hover {
+            color: black;
+        }
+/* Grid sản phẩm */
+.pro-bar {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-content:center;
+    align-items:center
+}
+/* Laptop nhỏ (max-width: 1200px): 5 cột */
+@media (max-width: 1200px) {
+    .pro-bar {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Tablet (max-width: 992px): 4 cột */
+@media (max-width: 992px) {
+    .pro-bar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet dọc (max-width: 768px): 3 cột */
+@media (max-width: 768px) {
+    .pro-bar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile lớn (max-width: 576px): 2 cột */
+@media (max-width: 576px) {
+    .pro-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile nhỏ (max-width: 400px): 1 cột */
+@media (max-width: 400px) {
+    .pro-bar {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product-img {
+    width: 190px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}

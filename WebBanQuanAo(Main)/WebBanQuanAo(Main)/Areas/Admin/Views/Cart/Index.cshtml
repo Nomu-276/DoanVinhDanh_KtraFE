@@ -1,0 +1,113 @@
+﻿@model List<WebBanQuanAo_Main_.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    .cart-title {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .cart-product-img {
+        width: 120px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .qty-box {
+        border: 1px solid #000;
+        padding: 6px 10px;
+        width: 60px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .delete-btn {
+        border: 1px solid black;
+        padding: 6px 10px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .summary-box {
+        border-left: 1px solid #ccc;
+        padding-left: 30px;
+        font-size: 14px;
+    }
+
+    .btn-checkout {
+        width: 100%;
+        padding: 12px;
+        background: black;
+        color: white;
+        font-size: 15px;
+        border: none;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    .price {
+        font-weight: bold;
+    }
+</style>
+
+<div class="container" style="margin-top:40px;">
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="cart-title">GIỎ HÀNG</div>
+
+            @foreach (var item in Model)
+            {
+                <div class="row" style="margin-bottom:30px;">
+                    <div class="col-md-3">
+                        <img src="@Url.Content(item.image)" class="cart-product-img" />
+                    </div>
+
+                    <div class="col-md-9">
+                        <div style="font-size:14px;">NOMIE</div>
+                        <div style="font-weight:600; margin:5px 0;">@item.namePro</div>
+                        <div class="price">@String.Format("₫{0:N0}", item.price)</div>
+
+                        <div style="margin-top:10px;">
+                            <div>Mã số sản phẩm: @item.idPro</div>
+                            <div>Màu sắc: @item.color</div>
+                            <div>Kích cỡ: @item.size</div>
+                            <div>Số lượng: @item.quantity</div>
+                            <div>Tổng: @String.Format("₫{0:N0}", item.total)</div>
+                        </div>
+
+                        <div style="margin-top:15px;">
+                            <a href="@Url.Action("Xoa","Cart", new { id = item.idPro })" class="delete-btn">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+
+                            <span class="qty-box">@item.quantity</span>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- SUMMARY -->
+        <div class="col-md-4 summary-box">
+            <div style="margin-top:20px;">
+                Giá trị đơn hàng: <span class="pull-right">@String.Format("{0:N0}₫", ViewBag.Total)</span>
+            </div>
+            <hr />
+            <h4>TỔNG <span class="pull-right">@String.Format("{0:N0}₫", ViewBag.Total)</span></h4>
+
+            <button class="btn-checkout">TIẾP TỤC THANH TOÁN</button>
+
+        </div>
+
+    </div>
+
+</div>
+

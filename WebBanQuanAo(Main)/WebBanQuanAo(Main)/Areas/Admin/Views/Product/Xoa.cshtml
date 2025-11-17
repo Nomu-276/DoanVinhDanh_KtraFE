@@ -1,0 +1,84 @@
+﻿@model WebBanQuanAo_Main_.Models.Product
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xác nhận xóa sản phẩm</h2>
+@using (Html.BeginForm("Xoa", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.ProductID)</th>
+        <td>@Html.DisplayFor(m => m.ProductID)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.NamePro)</th>
+        <td>@Html.DisplayFor(m => m.NamePro)</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            @Html.ValidationMessageFor(m => m.NamePro)
+        </td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.DecriptionPro)</th>
+        <td>@Html.DisplayFor(m => m.DecriptionPro)</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            @Html.ValidationMessageFor(m => m.DecriptionPro)
+        </td>
+    </tr>
+    @*<tr>
+        <th>@Html.DisplayNameFor(m => m.Price)</th>
+        <td>@Html.DisplayFor(m => m.Price)</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color:red">
+            @Html.ValidationMessageFor(m => m.Price)
+        </td>
+    </tr>*@
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.IDCate)</th>
+        <td>@Html.DisplayFor(m => m.IDCate)</td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            @Html.ValidationMessageFor(m => m.IDCate)
+        </td>
+    </tr>
+    
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.ImagePro)</th>
+        <td>
+            <img src="@Url.Content(Model.ImagePro)" width="150" height="150" id="previewImg" />
+
+        </td>
+
+    </tr>
+    <tr>
+        <td colspan="2">
+            @Html.ValidationMessageFor(m => m.ImagePro)
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="color:red;">
+            @if (ViewBag.errDelete != null)
+            {
+                @ViewBag.errDelete;
+            }
+        </td>
+
+    </tr>
+</table>
+}
+@Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-warning" })
+

@@ -1,0 +1,37 @@
+﻿@model IEnumerable< WebBanQuanAo_Main_.Models.AdminUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Quản lí tài khoản</h2>
+
+
+<table class="table">
+    @Html.ActionLink("Thêm mới", "Them", null, new { @class = "btn btn-success" })
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.ID)</th>
+        <th>@Html.DisplayNameFor(m => m.NameUser)</th>
+        <th>@Html.DisplayNameFor(m => m.RoleUser)</th>
+        <th>@Html.DisplayNameFor(m => m.PasswordUser)</th>
+
+        <th>Chức năng</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@Html.DisplayName(user.ID.ToString())</td>
+            <td>@Html.DisplayName(user.NameUser)</td>
+            <td>@Html.DisplayName(user.RoleUser)</td>
+            <td>@Html.DisplayName(user.PasswordUser)</td>
+
+            <td>
+                @Html.ActionLink("Sửa", "Sua", new { id = user.ID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Xoa", new { id = user.ID}, new { @class = "btn btn-danger" })
+                
+            </td>
+        </tr>
+    }
+</table>
+

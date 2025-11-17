@@ -1,0 +1,30 @@
+﻿@model WebBanQuanAo_Main_.Models.AdminUser
+
+@{
+    ViewBag.Title = "Xoa";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xóa tài khoản</h2>
+@using (Html.BeginForm("Xoa", "Account", FormMethod.Post))
+{
+    <table class="table">
+        @Html.AntiForgeryToken()
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.NameUser)</th>
+            <td>@Html.DisplayFor(m => m.NameUser)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.RoleUser)</th>
+            <td>@Html.DisplayFor(m => m.RoleUser)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.PasswordUser)</th>
+            <td>@Html.DisplayFor(m => m.PasswordUser)</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Xác nhận xóa" /></td>
+        </tr>
+    </table>
+}
+@Html.ActionLink("Quay về danh sách", "Index", "Account", null, new { @class = "btn btn-success" })

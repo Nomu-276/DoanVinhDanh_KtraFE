@@ -21,8 +21,10 @@ namespace WebBanQuanAo_Main_.Models
     
         public int IDCus { get; set; }
         public string NameCus { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string PhoneCus { get; set; }
         public string EmailCus { get; set; }
+        public string PasswordCus { get; set; }
     
         public virtual ICollection<OrderPro> OrderProes { get; set; }
     }

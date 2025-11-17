@@ -29,11 +29,11 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
 
-    .xn-card h1 {
-        margin: 0 0 6px;
-        font-size: 22px;
-        color: #222;
-    }
+.xn-card h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #222;
+}
 
 .xn-sub {
     color: #666;
@@ -65,16 +65,16 @@ body {
     margin-top: 8px;
 }
 
-    .xn-table th, .xn-table td {
-        padding: 8px 6px;
-        border-bottom: 1px solid #eee;
-        font-size: 14px;
-    }
+.xn-table th, .xn-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
 
-    .xn-table th {
-        text-align: left;
-        color: #444;
-    }
+.xn-table th {
+    text-align: left;
+    color: #444;
+}
 
 .center {
     text-align: center;
@@ -90,12 +90,12 @@ body {
     color: #222;
 }
 
-    .xn-totals div {
-        display: flex;
-        justify-content: flex-end;
-        gap: 16px;
-        margin-bottom: 6px;
-    }
+.xn-totals div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 6px;
+}
 
 .xn-total {
     font-weight: 700;
@@ -120,11 +120,11 @@ body {
     cursor: pointer;
 }
 
-    .xn-btn.ghost {
-        background: black;
-        color: white;
-        border: 1px solid #ddd;
-    }
+.xn-btn.ghost {
+    background: black;
+    color: white;
+    border: 1px solid #ddd;
+}
 
 .xn-empty {
     text-align: center;

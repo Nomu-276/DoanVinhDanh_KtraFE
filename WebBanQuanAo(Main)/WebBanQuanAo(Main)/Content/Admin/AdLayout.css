@@ -1,0 +1,60 @@
+﻿body {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+.navbar-nav .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+.navbar-icons i {
+    font-size: 22px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.logo-img {
+    height: 50px;
+}
+.navbar-toggler {
+    border: none;
+}
+.navbar {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.footer-hm {
+    background: #f9f9f9;
+    padding: 40px 0;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    color: #222;
+}
+
+.footer-hm h4 {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-hm a {
+    
+    text-transform:none;
+    font-size: 13px;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.footer-hm a:hover {
+    text-decoration: underline;
+    color: #000;
+}

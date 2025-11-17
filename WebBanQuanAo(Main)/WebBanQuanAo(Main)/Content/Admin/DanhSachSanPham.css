@@ -1,0 +1,65 @@
+﻿body {
+}
+.category-menu {
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+    font-size: 18px;
+}
+
+.category-menu a {
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid gray;
+    background-color: white;
+    color: black;
+    padding: 5px 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px 40px;
+}
+/* Laptop nhỏ (max-width: 992px): 3 cột */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablet (max-width: 768px): 2 cột */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (max-width: 480px): 1 cột */
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.product-card {
+}
+
+.product-card img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.product-name {
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.product-price {
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 2px;
+}

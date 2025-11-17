@@ -4,34 +4,33 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"></script>
     <title>Trang Chủ</title>
     <link href="~/Content/TrangLamWeb/layout1.css" rel="stylesheet" />
 </head>
-<body>
-    <header id="dautrang">
+<body class="container">
+    <header id="dautrang" >
 
-        <div class="logo">
+        <div class="logo col-sm-6"> 
             <a href="TrangChu">
                 <img src="https://raw.githubusercontent.com/Nomu-276/dulieuweb/main/Nomie.png" title="Nomie" />
             </a>
-        </div>
-        <div id="menuleft">
+        
             <nav>
                 <ul class="fm-menu">
                     <li><a href="TrangChu">Nữ</a></li>
-                    <li><a href="TrangChuNam">Nam</a></li>
-                    <li><a href="TrangChuTreEm">Trẻ em</a></li>
                 </ul>
             </nav>
 
         </div>
-        <div id="menuright">
+        <div id="menuright" class="col-sm-6">
             <nav>
                 <ul class="fm-menu">
                     <li>
-                        <form class="search-form" action="@Url.Action("DanhSachSanPham", "TrangChu", "DanhSachSanPhamNam","DanhSachSanPhamTreEm")" method="get" style="display:inline;">
+                        <form class="search-form" action="@Url.Action("DanhSachSanPham", "TrangChu", "DanhSachSanPhamNam","DanhSachSanPhamTreEm")" method="get">
                             <div class="search">
                                 <input type="text" class="input" name="q" placeholder="Search" value="@(Request.QueryString["q"] ?? "")">
                                 <button class="btn" type="submit">
@@ -63,7 +62,7 @@
         @RenderBody()
 
     </main>
-    <footer id="chantrang">
+    <footer id="chantrang" class="container">
         <div class="menufoot">
             <nav>
                 <h2 class="h2-foot" id="">Mua sắm</h2>

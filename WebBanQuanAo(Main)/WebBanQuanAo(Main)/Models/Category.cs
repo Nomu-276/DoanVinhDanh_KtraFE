@@ -19,7 +19,7 @@ namespace WebBanQuanAo_Main_.Models
             this.Products = new HashSet<Product>();
         }
     
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string IDCate { get; set; }
         public string NameCate { get; set; }
     

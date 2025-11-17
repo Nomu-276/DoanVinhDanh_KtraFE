@@ -9,13 +9,12 @@ body {
     line-height: 1.15;
 }
 .gtsanpham {
-    max-width: 3000px;
-    display:grid;
-    grid-template-columns:1fr;
+   
+    
 }
 /*BANNER*/
 #banner {
-    max-width: 2000px;
+    width:auto;
    
 }
 
@@ -23,7 +22,7 @@ body {
     text-decoration:none;
 }
 .fm-banner img{
-    width:100%;
+    width:auto;
     height:auto;
 }
 .mua-ngay-banner{

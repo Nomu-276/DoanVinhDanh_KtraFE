@@ -23,9 +23,10 @@ namespace WebBanQuanAo_Main_.Models
         public Nullable<System.DateTime> DateOrder { get; set; }
         public Nullable<int> IDCus { get; set; }
         public string AddressDeliverry { get; set; }
-        public Nullable<double> totalPrice { get; set; }
-        public string methodPay { get; set; }
-        public string statusOrder { get; set; }
+        public Nullable<decimal> TotalAmount { get; set; }
+        public string PaymentMethod { get; set; }
+        public string PaymentStatus { get; set; }
+        public string OrderStatus { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

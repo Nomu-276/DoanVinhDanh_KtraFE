@@ -1,0 +1,25 @@
+﻿@model WebBanQuanAo_Main_.Models.Category
+
+@{
+    ViewBag.Title = "Sua";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cập nhật danh mục</h2>
+@using (Html.BeginForm("Sua", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    <div class="form-control">
+        @Html.DisplayNameFor(m => m.IDCate)
+        @Html.EditorFor(m => m.IDCate, new { htmlAttributes = new { @readonly = "readonly" } })
+    </div>
+    <div class="form-control">
+        @Html.DisplayNameFor(m => m.NameCate)
+        @Html.EditorFor(m => m.NameCate)
+    </div>
+    <div class="form-control">
+        <input type="submit" value="Cập nhật" />
+    </div>
+}
+@Html.ActionLink("Quay về danh sách", "DanhSachDanhMuc", null, new { @class = "btn btn-success" })
+

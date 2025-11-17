@@ -11,22 +11,27 @@ namespace WebBanQuanAo_Main_.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
+
     public partial class Product
     {
         public Product()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.ProDetails = new HashSet<ProDetail>();
         }
     
         public int ProductID { get; set; }
         public string NamePro { get; set; }
         public string DecriptionPro { get; set; }
         public string IDCate { get; set; }
-        public Nullable<decimal> Price { get; set; }
         public string ImagePro { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImagePath { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
     
         public virtual Category Category { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<ProDetail> ProDetails { get; set; }
+        
     }
 }
