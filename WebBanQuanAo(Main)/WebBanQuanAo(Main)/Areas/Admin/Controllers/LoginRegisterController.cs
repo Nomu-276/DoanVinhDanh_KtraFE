@@ -7,9 +7,10 @@ using WebBanQuanAo_Main_.Models;
 
 namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
+
     public class LoginRegisterController : Controller
     {
-        DBClothingStoreEntities db = new DBClothingStoreEntities();
+        DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
         // GET: LoginRegister
         //Tạo form login
         public ActionResult Index()

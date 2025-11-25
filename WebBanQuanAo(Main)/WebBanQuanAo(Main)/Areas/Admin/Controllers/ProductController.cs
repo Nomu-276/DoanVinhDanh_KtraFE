@@ -5,45 +5,53 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using WebBanQuanAo_Main_.Models;
+
 
 namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        DBClothingStoreEntities db = new DBClothingStoreEntities();
+        DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
 
         // GET: Product
-        public ActionResult IndexCustomer(string cateId)
+        public ActionResult IndexCustomer(int? cateId)
         {
             var products = db.Products.AsQueryable();
 
-            // Nếu người dùng đã bấm vào danh mục
-            if (!string.IsNullOrEmpty(cateId))
+            if (cateId != null)
             {
                 products = products.Where(p => p.IDCate == cateId);
             }
 
-            // Load tất cả Category để hiển thị menu
             ViewBag.Categories = db.Categories.ToList();
-
+            ViewBag.Suppliers = db.Suppliers.ToList();
+            ViewBag.Colors = db.Colors.ToList();
+            ViewBag.Sizes = db.Sizes.ToList();
+            
             return View(products.ToList());
         }
 
 
-        public ActionResult Index(decimal? _min, decimal? _max)
+        public ActionResult Index(string searchTerm)
         {
-            var proFilter = db.Products.AsQueryable();
-            //if (_min.HasValue)
-            //    proFilter = proFilter.Where(s => s.Price >= _min.Value);
-            //if (_max.HasValue)
-            //    proFilter = proFilter.Where(s => s.Price <= _max.Value);
-            return View(proFilter.ToList());
+            var model = new ProductSearchVM();
+
+            var products = db.Products.Include("Category").ToList()
+                .AsQueryable();
+            
+
+            return View(products);
+
         }
 
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
+            ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
+            ViewBag.listColor = new SelectList(db.Colors, "IDColor", "ColorName");
             ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
             return View();
         }
@@ -51,7 +59,11 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product pro)
         {
+            ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
+            ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
+            ViewBag.listColor = new SelectList(db.Colors, "IDColor", "ColorName");
             ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
+
             if (ModelState.IsValid)
             {
                 if (pro.ImagePath != null)
@@ -62,21 +74,37 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
                     pro.ImagePath.SaveAs(Path.Combine(Server.MapPath("~/hinh/"), fileName));
                     pro.ImagePro = "~/hinh/" + fileName;
                 }
+                pro.CreatedDate = DateTime.Now;
+                pro.SoldQuantity = 0;
+                pro.ViewQuantity = 0;
+                foreach (var item in ModelState)
+                {
+                    foreach (var error in item.Value.Errors)
+                    {
+                        System.Diagnostics.Debug.WriteLine(item.Key + ": " + error.ErrorMessage);
+                    }
+                }
                 db.Products.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            foreach (var item in ModelState)
+            {
+                foreach (var error in item.Value.Errors)
+                {
+                    System.Diagnostics.Debug.WriteLine(item.Key + ": " + error.ErrorMessage);
+                }
+            }
             return View(pro);
         }
+
 
         [HttpGet]
         public ActionResult Sua(int id)
         {
-            var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-            ViewBag.Details = details;
-            ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-            ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
+            ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
+            ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
+            ViewBag.listColor = new SelectList(db.Colors, "IDColor", "ColorName");
             ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
             var pro = db.Products.Find(id);
             return View(pro);
@@ -86,19 +114,24 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Sua(Product pro, int id)
         {
-            var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-            ViewBag.Details = details;
-            ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-            ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
+            ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
+            ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
+            ViewBag.listColor = new SelectList(db.Colors, "IDColor", "ColorName");
             ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
             var proEdit = db.Products.Find(id);
             if (ModelState.IsValid)
             {
+                
                 proEdit.NamePro = pro.NamePro;
-
-                proEdit.DecriptionPro = pro.DecriptionPro;
-                //proEdit.Price = pro.Price;
+                proEdit.DescriptionPro = pro.DescriptionPro;
+                proEdit.Size = pro.Size;
+                proEdit.Color = pro.Color;
+                proEdit.IDSup = pro.IDSup;
+                proEdit.RemainQuantity = pro.RemainQuantity;
+                proEdit.Price = pro.Price;
+                proEdit.SoldQuantity = pro.SoldQuantity;
+                proEdit.ViewQuantity = pro.ViewQuantity;
+                
                 proEdit.IDCate = pro.IDCate;
                 if (pro.ImagePath != null)
                 {
@@ -118,11 +151,9 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Xoa(int id)
         {
-            var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-            ViewBag.Details = details;
-            ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-            ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
+            ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
+            ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
+            ViewBag.listColor = new SelectList(db.Colors, "IDColor", "ColorName");
             ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
             var pro = db.Products.Find(id);
             return View(pro);
@@ -135,15 +166,14 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 
             try
             {
-                var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-                ViewBag.Details = details;
-                ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-                ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
-                ViewBag.listCate = new SelectList(db.Categories, "IDCate", "NameCate");
+                
                 var proDelete = db.Products.Find(id);
                 if (proDelete != null)
                 {
+                    ViewBag.listSup = db.Suppliers.ToList();
+                    ViewBag.listSize = db.Sizes.ToList();
+                    ViewBag.listColor = db.Colors.ToList();
+                    ViewBag.listCate = db.Categories.ToList();
                     db.Products.Remove(proDelete);
                     db.SaveChanges();
                     ViewBag.errDelete = null;
@@ -167,11 +197,9 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
             if (product == null)
                 return HttpNotFound();
             // Lấy tất cả biến (size, màu, giá)
-            var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-            ViewBag.Details = details;
-            ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-            ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
+            var products = db.Products.Where(x => x.ProductID == id).ToList();
+            ViewBag.Sizes = products.Select(x => x.Size).Distinct().ToList();
+            ViewBag.Colors = products.Select(x => x.Color).Distinct().ToList();
 
             return View(product);
         }
@@ -181,11 +209,9 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
             if (product == null)
                 return HttpNotFound();
             // Lấy tất cả biến (size, màu, giá)
-            var details = db.ProDetails.Where(x => x.ProductID == id).ToList();
-
-            ViewBag.Details = details;
-            ViewBag.Sizes = details.Select(x => x.Size).Distinct().ToList();
-            ViewBag.Colors = details.Select(x => x.Color).Distinct().ToList();
+            var products = db.Products.Where(x => x.ProductID == id).ToList();
+            ViewBag.Sizes = products.Select(x => x.Size).Distinct().ToList();
+            ViewBag.Colors = products.Select(x => x.Color).Distinct().ToList();
 
             return View(product);
         }

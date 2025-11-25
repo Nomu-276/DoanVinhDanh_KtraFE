@@ -9,7 +9,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class AccountController : Controller
     {
-        DBClothingStoreEntities db = new DBClothingStoreEntities();
+        DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
         // GET: Admin/Account
         public ActionResult Index()
         {

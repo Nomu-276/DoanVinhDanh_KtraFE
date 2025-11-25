@@ -1,0 +1,35 @@
+﻿@model WebBanQuanAo_Main_.Models.Supplier
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameSup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameSup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressSup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressSup)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDSup }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

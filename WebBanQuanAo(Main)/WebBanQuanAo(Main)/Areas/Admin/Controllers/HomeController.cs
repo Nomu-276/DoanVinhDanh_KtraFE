@@ -9,7 +9,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        DBClothingStoreEntities db =new DBClothingStoreEntities();
+        DBClothingStoreEntities1 db =new DBClothingStoreEntities1();
         // GET: Admin/Home
         public ActionResult IndexCus()
         {
@@ -19,6 +19,10 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
                     .ToList();
 
             return View(products);
+        }
+        public ActionResult Index()
+        {
+            return View();
         }
     }
 }

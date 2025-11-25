@@ -11,14 +11,16 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
     {
         // GET: Admin/Category
         //khởi tạo database
-        DBClothingStoreEntities db = new DBClothingStoreEntities();
+        DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
 
         // GET: Category
         public ActionResult DanhSachDanhMuc()
         {
-            return View(db.Categories.ToList());
+            var cate = db.Categories.ToList();
+            return View(cate);                  
         }
-        
+
+
         [HttpGet]
         public ActionResult Them()
         {
@@ -33,13 +35,13 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
             return RedirectToAction("DanhSachDanhMuc");
         }
         [HttpGet]
-        public ActionResult Sua(string id)
+        public ActionResult Sua(int id)
         {
             var cate = db.Categories.Find(id);
             return View(cate);
         }
         [HttpPost]
-        public ActionResult Sua(string id, Category cate)
+        public ActionResult Sua(int id, Category cate)
         {
             var cate2 = db.Categories.Find(id);
             cate2.NameCate = cate.NameCate;
@@ -47,22 +49,47 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
             return RedirectToAction("DanhSachDanhMuc");
         }
         [HttpGet]
-        public ActionResult Xoa(string id)
+        public ActionResult Xoa(int id)
         {
             var cate = db.Categories.Find(id);
+            if (cate == null)
+                return HttpNotFound();
             return View(cate);
         }
-        public ActionResult Xoa(string id, Category cate)
+        [HttpPost]
+        public ActionResult Xoa(int id, Category cate)
         {
-            cate = db.Categories.Find(id.TrimEnd());
+            cate = db.Categories.Find(id);
+            if (cate == null)
+                return HttpNotFound();
+
+            bool hasProducts = db.Products.Any(p => p.IDCate == id);
+
+            if (hasProducts)
+            {
+            
+                ViewBag.Error = "Không thể xóa vì danh mục đang chứa sản phẩm!";
+                return View(cate);
+            }
+
             db.Categories.Remove(cate);
             db.SaveChanges();
             return RedirectToAction("DanhSachDanhMuc");
         }
-        public ActionResult ChiTiet(string id)
+        public ActionResult Detail(int id)
         {
-            var cate = db.Categories.Find(id);
-            return View(cate);
+            var category = db.Categories
+                .Include("Products")
+                .FirstOrDefault(c => c.IDCate == id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(category);
         }
+
+
+
     }
 }

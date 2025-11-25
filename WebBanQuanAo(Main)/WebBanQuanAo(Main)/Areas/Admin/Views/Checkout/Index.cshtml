@@ -1,0 +1,141 @@
+﻿@model WebBanQuanAo_Main_.Models.OrderPro
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="container my-5">
+    <h1 class="header-thanhtoan text-center mb-4">THANH TOÁN</h1>
+
+    <div class="row">
+
+        <div class="col-lg-7 order-lg-1">
+
+            <div class="section mb-5">
+                <h2 class="mb-3">Giỏ Hàng</h2>
+                <div class="table-responsive">
+                    <table id="tbCart" class="table table-bordered table-striped">
+                        <thead>
+                            <tr class="table-dark">
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá tiền($)</th>
+                                <th>Tổng($)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bdCart">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Tổng tiền sản phẩm:</td>
+                                <td id="Tong" class="fw-bold">$0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section mb-5">
+                <h2 class="mb-3">Thông tin cá nhân</h2>
+                <form id="ThongTin" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="họ_và_tên" class="form-label">Họ và tên:</label>
+                        <input type="text" id="họ_và_tên" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Đt" class="form-label">Số điện thoại:</label>
+                        <input type="tel" id="Đt" class="form-control" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="email" class="form-label">Địa chỉ mail:</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                </form>
+
+                <h2 class="mt-4 mb-3">Địa chỉ giao hàng</h2>
+                <form id="FormGiaoHang" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="city" class="form-label">Thành phố:</label>
+                        <input type="text" id="city" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="địa_chỉ" class="form-label">Địa chỉ:</label>
+                        <input type="text" id="địa_chỉ" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section mb-5">
+                <h2 class="mb-3">Voucher</h2>
+                <form id="FormVoucher" class="row g-3">
+                    <div class="col-9">
+                        <input type="text" id="VoucherCode" class="form-control" placeholder="Enter coupon code...">
+                    </div>
+                    <div class="col-3 d-grid">
+                        <button type="button" class="btn btn-outline-dark" onclick="sdVoucher()">Sử dụng</button>
+                    </div>
+                    <div class="col-12">
+                        <p id="voucherMessage" class="text-success mt-1"></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section mb-5">
+                <h2 class="mb-3">Phương thức thanh toán</h2>
+                <form id="FormThanhToan">
+                    <div class="PaymentOptions mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PtThanhToan" id="paymentCredit" value="credit" checked onclick="togglePaymentFields()">
+                            <label class="form-check-label" for="paymentCredit">Credit Card</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="PtThanhToan" id="paymentCOD" value="cod" onclick="togglePaymentFields()">
+                            <label class="form-check-label" for="paymentCOD">Thanh toán khi nhận hàng (COD)</label>
+                        </div>
+                    </div>
+
+                    <div id="creditcard" class="credit-card row g-3">
+                        <div class="col-12">
+                            <label for="cardNum" class="form-label">Số thẻ:</label>
+                            <input type="text" id="cardNum" class="form-control" placeholder="3412 8275 0199 0999" maxlength="19" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="ten" class="form-label">Tên chủ thẻ:</label>
+                            <input type="text" id="ten" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="expiry" class="form-label">Ngày hết hạn:</label>
+                            <input type="text" id="expiry" class="form-control" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cvv" class="form-label">CVV:</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="999" maxlength="3" required>
+                        </div>
+                    </div>
+
+                    <div id="momo" class="creditcard alert alert-info" style="display: none;">
+                        Thanh toán khi nhận hàng sẽ được áp dụng. Vui lòng chuẩn bị tiền mặt.
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-lg-5 order-lg-2">
+            <div class="donhang card p-4 sticky-top" style="top: 20px;">
+                <h2 class="mb-3">Đơn hàng</h2>
+                <div class="fm-donhang border-bottom pb-3 mb-3">
+                    <p class="d-flex justify-content-between">Tổng tiền sản phẩm: <span>$<span id="orderValue">0.00</span></span></p>
+                    <p class="d-flex justify-content-between">Phí vận chuyển: <span>$<span id="deliveryFee">8.00</span></span></p>
+                    <p class="d-flex justify-content-between text-danger">Voucher giảm giá: <span>- $<span id="voucherDiscount">0.00</span></span></p>
+                </div>
+                <p class="total d-flex justify-content-between h4 fw-bold">Total Amount: <span>$<span id="totalAmount">0.00</span></span></p>
+
+                <div class="form-submit mt-4 d-grid">
+                    <button type="submit" class="btn btn-dark btn-lg" onclick="submitOrder()">Hoàn tất ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

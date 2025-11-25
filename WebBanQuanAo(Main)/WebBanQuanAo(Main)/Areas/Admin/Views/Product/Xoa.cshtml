@@ -1,84 +1,92 @@
 ﻿@model WebBanQuanAo_Main_.Models.Product
 
 @{
+
     ViewBag.Title = "Xoa";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Xác nhận xóa sản phẩm</h2>
-@using (Html.BeginForm("Xoa", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.ProductID)</th>
-        <td>@Html.DisplayFor(m => m.ProductID)</td>
-    </tr>
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.NamePro)</th>
-        <td>@Html.DisplayFor(m => m.NamePro)</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            @Html.ValidationMessageFor(m => m.NamePro)
-        </td>
-    </tr>
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.DecriptionPro)</th>
-        <td>@Html.DisplayFor(m => m.DecriptionPro)</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            @Html.ValidationMessageFor(m => m.DecriptionPro)
-        </td>
-    </tr>
-    @*<tr>
-        <th>@Html.DisplayNameFor(m => m.Price)</th>
-        <td>@Html.DisplayFor(m => m.Price)</td>
-    </tr>
-    <tr>
-        <td colspan="2" style="color:red">
-            @Html.ValidationMessageFor(m => m.Price)
-        </td>
-    </tr>*@
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.IDCate)</th>
-        <td>@Html.DisplayFor(m => m.IDCate)</td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            @Html.ValidationMessageFor(m => m.IDCate)
-        </td>
-    </tr>
+<link href="~/Content/Admin/CDED.css" rel="stylesheet" />
+<div class="admin-container">
+    <div class="admin-title text-center alert alert-danger">Xác nhận xóa sản phẩm</div>
+    <div class="alert alert-warning">
+        Bạn có chắc muốn xóa sản phẩm này?
+    </div>
+    @using (Html.BeginForm("Xoa", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        
+            <div class="admin-form">
+
+                <div class="mb-3 mt-3">
+                    Tên sản phẩm
+                    @Html.DisplayFor(m => m.NamePro, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>@Html.ValidationMessageFor(m => m.NamePro)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Mô tả sản phẩm
+                    @Html.DisplayFor(m => m.DescriptionPro, new { @class = "form-control", rows = "5" })
+                    <div>@Html.ValidationMessageFor(m => m.DescriptionPro)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Đơn giá
+                    @Html.DisplayFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>@Html.ValidationMessageFor(m => m.Price)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Chủng loại
+                    @Html.DisplayFor(m => m.IDCate)
+                    <div>@Html.ValidationMessageFor(m => m.IDCate)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Màu
+                    @Html.DisplayFor(m => m.IDColor)
+                    <div>@Html.ValidationMessageFor(m => m.IDColor)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Size
+                    @Html.DisplayFor(m => m.IDSize)
+                    <div>@Html.ValidationMessageFor(m => m.IDSize)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Nhà cung cấp
+                    @Html.DisplayFor(m => m.IDSup)
+                    <div>@Html.ValidationMessageFor(m => m.IDSup)</div>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    Ảnh
+                    <img src="@Url.Content(Model.ImagePro)" width="250" height="300" id="previewImg" />
+                    <div>@Html.ValidationMessageFor(m => m.ImagePro)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Tồn
+                    @Html.DisplayFor(m => m.RemainQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>@Html.ValidationMessageFor(m => m.RemainQuantity)</div>
+                </div>
+                 @*<div class="mb-3 mt-3">
+                    Lượt bán
+                    @Html.EditorFor(m => m.SoldQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>@Html.ValidationMessageFor(m => m.SoldQuantity)</div>
+                </div>
+                <div class="mb-3 mt-3">
+                    Lượt xem
+                    @Html.EditorFor(m => m.ViewQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                    <div>@Html.ValidationMessageFor(m => m.ViewQuantity)</div>
+                </div>*@
+                <div class="mb-3 mt-3">
+                    @if (ViewBag.errDelete != null)
+                    {
+                        @ViewBag.errDelete;
+                    }
+                </div>
+                <div>
+                    <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+                    @Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-success" })
+                </div>
+            </div>
+     
+    }
+    </div>
     
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.ImagePro)</th>
-        <td>
-            <img src="@Url.Content(Model.ImagePro)" width="150" height="150" id="previewImg" />
-
-        </td>
-
-    </tr>
-    <tr>
-        <td colspan="2">
-            @Html.ValidationMessageFor(m => m.ImagePro)
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="submit" value="Xóa" class="btn btn-danger" />
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" style="color:red;">
-            @if (ViewBag.errDelete != null)
-            {
-                @ViewBag.errDelete;
-            }
-        </td>
-
-    </tr>
-</table>
-}
-@Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-warning" })
 

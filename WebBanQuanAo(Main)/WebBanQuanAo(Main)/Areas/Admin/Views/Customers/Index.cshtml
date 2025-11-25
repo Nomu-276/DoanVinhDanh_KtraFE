@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="table mt-3 mb-3 alert" style="background-color:lightyellow; color:yellowgreen">QUẢN LÍ KHÁCH HÀNG</h2>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>
+                Tên khách hàng
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Mail
+            </th>
+            <th>
+                Mật khẩu khách hàng
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PasswordCus)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.IDCus }) |
+
+                </td>
+            </tr>
+        }
+
+    </table>
+ </div>

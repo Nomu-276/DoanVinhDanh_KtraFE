@@ -1,0 +1,90 @@
+﻿@model  WebBanQuanAo_Main_.Models.Product
+
+@{
+    
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+
+
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+
+        <tr>
+            <td colspan="2">
+                @Html.ValidationMessageFor(m => m.ProductID)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.NamePro)</th>
+            <td>@Html.EditorFor(m => m.NamePro)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.ValidationMessageFor(m => m.NamePro)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.DecriptionPro)</th>
+            <td>@Html.EditorFor(m => m.DecriptionPro)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.ValidationMessageFor(m => m.DecriptionPro)
+            </td>
+        </tr>
+        <tr>
+
+            <th>@Html.DisplayNameFor(m => m.IDCate)</th>
+            <td>@Html.DropDownListFor(m => m.IDCate, (SelectList)ViewBag.listCate, "Chọn danh mục")</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.ValidationMessageFor(m => m.IDCate)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ImagePro)</th>
+            <td>
+                <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnam/main/aonibanner.png" width="150" height="150" id="previewImg" />
+                <input type="file" name="ImagePath" id="ImagePath" />
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.ValidationMessageFor(m => m.ImagePro)
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" class="btn btn-danger" />
+            </td>
+        </tr>
+
+    </table>
+
+
+}
+
+
+@Html.ActionLink("Quay về trang chủ", "Index", "Product", null, new { @class = "btn btn-success" })
+<script>
+    document.getElementById("ImagePath").addEventListener("change", function (event) {
+        let file = event.target.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("previewImg").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+

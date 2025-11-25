@@ -5,26 +5,35 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Xóa tài khoản</h2>
-@using (Html.BeginForm("Xoa", "Account", FormMethod.Post))
-{
-    <table class="table">
-        @Html.AntiForgeryToken()
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.NameUser)</th>
-            <td>@Html.DisplayFor(m => m.NameUser)</td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.RoleUser)</th>
-            <td>@Html.DisplayFor(m => m.RoleUser)</td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.PasswordUser)</th>
-            <td>@Html.DisplayFor(m => m.PasswordUser)</td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Xác nhận xóa" /></td>
-        </tr>
-    </table>
-}
-@Html.ActionLink("Quay về danh sách", "Index", "Account", null, new { @class = "btn btn-success" })
+<link href="~/Content/Admin/CDED.css" rel="stylesheet" />
+<div class="admin-container">
+    <div class="admin-title text-center alert alert-danger">Xác nhận xóa tài khoản</div>
+    <div class="alert alert-warning">
+        Bạn có chắc muốn xóa tài khoản này?
+    </div>
+    @using (Html.BeginForm("Xoa", "Account", FormMethod.Post))
+    {
+
+            @Html.AntiForgeryToken()
+            <div class="admin-form">
+                <div class="mb-3 mt-3">
+                    <h4>Tên người dùng</h4>
+                    @Html.DisplayFor(m => m.NameUser, new { htmlAttributes = new { @class = " form-control" } })
+                </div>
+                <div class="mb-3 mt-3">
+                    <h4>Vai trò</h4>
+                    @Html.DisplayFor(m => m.RoleUser, new { htmlAttributes = new { @class = " form-control" } })
+                    <div class="mb-3 mt-3">
+                        <h4>Mật khẩu</h4>
+                        @Html.DisplayFor(m => m.PasswordUser, new { htmlAttributes = new { @class = " form-control" } })
+                    </div>
+                    <div>
+                        <input type="submit" value="Xác nhận xóa" class="btn btn-danger" />
+                        @Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-success" })
+                    </div>
+                </div>
+                }
+
+            </div>
+    }
+</div>

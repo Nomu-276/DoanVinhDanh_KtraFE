@@ -2,10 +2,49 @@
 
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-}
 
-<h2>Form Register</h2>
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+}
+@*<link href="~/Content/Admin/LoginRegister.css" rel="stylesheet" />
+
+    <div class="auth-container">
+        <h2>TRỞ THÀNH THÀNH VIÊN NOMIE</h2>
+
+        @using (Html.BeginForm("Register", "LoginRegister", FormMethod.Post, new { @class = "register-form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="NameUser" class="small fw-bold">Tên *</label>
+                @Html.EditorFor(m => m.NameUser, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Tên" } })
+                @if (ViewBag.ErrorRegister != null)
+                {
+                    <span class="validation-message">@ViewBag.ErrorRegister</span>
+                }
+                @Html.ValidationMessageFor(m => m.NameUser, "", new { @class = "validation-message" })
+            </div>
+
+            <div class="form-group">
+                <label for="PasswordUser" class="small fw-bold">Tạo mật khẩu *</label>
+                @Html.PasswordFor(m => m.PasswordUser, new { @class = "form-control form-control-lg", placeholder = "Mật khẩu" })
+                @Html.ValidationMessageFor(m => m.PasswordUser, "", new { @class = "validation-message" })
+            </div>
+
+            <div class="form-group">
+                <label for="ConfirmPassword" class="small fw-bold">Xác nhận mật khẩu *</label>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control form-control-lg", placeholder = "Xác nhận mật khẩu" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "validation-message" })
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="TRỞ THÀNH THÀNH VIÊN CỦA NOMIE" class="btn btn-dark-main" />
+            </div>
+
+            <div class="form-group">
+                @Html.ActionLink("QUAY LẠI ĐĂNG NHẬP", "Index", "LoginRegister", null, new { @class = "btn btn-white-main" })
+            </div>
+        }
+    </div>*@
+<h2>Đăng kí</h2>
 @using (Html.BeginForm("Register", "LoginRegister"))
 {
     @Html.AntiForgeryToken()
@@ -27,7 +66,7 @@
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(m => m.NameUser)
+                Tên người dùng
             </td>
             <td>
                 @Html.EditorFor(m => m.NameUser)
@@ -38,7 +77,7 @@
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(m => m.RoleUser)
+               Vai trò
             </td>
             <td>
                 @Html.EditorFor(m => m.RoleUser)
@@ -49,7 +88,7 @@
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(m => m.PasswordUser)
+                Mật khẩu
             </td>
             <td>
                 @Html.PasswordFor(m => m.PasswordUser)
@@ -71,12 +110,11 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Register" />
+                <input type="submit" value="Đăng kí" />
             </td>
             <td>
-                @Html.ActionLink("Login", "Index", "LoginRegister", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Đăng nhập", "Index", "LoginRegister", null, new { @class = "btn btn-primary" })
             </td>
         </tr>
     </table>
 }
-

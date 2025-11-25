@@ -1,37 +1,49 @@
-﻿@model IEnumerable<WebBanQuanAo_Main_.Models.Category>
+﻿@model IEnumerable< WebBanQuanAo_Main_.Models.Category>
 
 @{
+
     ViewBag.Title = "DanhSachDanhMuc";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>DANH SÁCH DANH MỤC SẢN PHẨM</h2>
-@Html.ActionLink("Thêm mới", "Them", null, new { @class = "btn btn-success" })
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(m => m.IDCate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(m => m.NameCate)
-        </th>
-        <th>Chức năng</th>
-    </tr>
-    @foreach (var cate in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayName(cate.IDCate)
-            </td>
-            <td>
-                @Html.DisplayName(cate.NameCate)
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "Sua", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-warning" })
-                @Html.ActionLink("Xóa", "Xoa", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-danger" })
-                @Html.ActionLink("Chi tiết", "ChiTiet", new { id = cate.IDCate.TrimEnd() }, new { @class = "btn btn-dark" })
-            </td>
-        </tr>
+<style>
+    .nut{
+        width:60px;
+        height:60px;
+        
     }
-</table>
+    .boxbtn{
+        margin-left:1px;
+    }
+</style>
+<h2 class="table mt-3 mb-3 alert alert-secondary">DANH SÁCH DANH MỤC SẢN PHẨM</h2>
+<div class="container">
+    <table class="table">
+        <tr class="">
+            <th>
+                Tên danh mục
+            </th>
+            
+            <th></th>
+        </tr>
+        @foreach (var cate in Model)
+        {
+            <tr>
+                <td style="font-size:20px;" class=" col-md-9 col-lg-9">
+                    @Html.DisplayName(cate.NameCate)
+                </td>
+                
+                <td class=" col-md-4 col-lg-4 ">
+                    <div class="row">
+                        <div class="col-lg-3 boxbtn">@Html.ActionLink("Sửa", "Sua", new { id = cate.IDCate }, new { @class = "btn btn-warning nut" })</div>
+                        <div class="col-lg-3 boxbtn ">@Html.ActionLink("Xóa", "Xoa", new { id = cate.IDCate }, new { @class = "btn btn-danger nut" })</div>
+                        <div class="col-lg-3 boxbtn">@Html.ActionLink("Chi tiết", "Detail", new { id = cate.IDCate }, new { @class = "btn btn-dark nut" })</div>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@Html.ActionLink("Thêm mới", "Them", null, new { @class = "btn btn-success" })
+
 

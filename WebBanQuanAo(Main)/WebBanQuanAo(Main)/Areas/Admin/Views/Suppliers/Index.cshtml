@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Nhà cung cấp</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressSup)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressSup)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDSup }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDSup }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDSup })
+        </td>
+    </tr>
+}
+
+</table>

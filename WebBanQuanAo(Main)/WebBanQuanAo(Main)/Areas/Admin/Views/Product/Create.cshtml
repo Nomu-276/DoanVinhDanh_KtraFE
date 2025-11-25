@@ -1,95 +1,99 @@
-﻿@model  WebBanQuanAo_Main_.Models.Product
+﻿@model WebBanQuanAo_Main_.Models.Product
 
 @{
+    
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 
 
 
 }
+<link href="~/Content/Admin/CDED.css" rel="stylesheet" />
+<div class="admin-container">
+    <div class="admin-title text-center alert alert-success">Thêm mới sản phẩm</div>
 
-<h2>Create</h2>
-@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <table class="table">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        
+    <div class="admin-form">
 
-        <tr>
-            <td colspan="2">
-                @Html.ValidationMessageFor(m => m.ProductID)
-            </td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.NamePro)</th>
-            <td>@Html.EditorFor(m => m.NamePro)</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                @Html.ValidationMessageFor(m => m.NamePro)
-            </td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.DecriptionPro)</th>
-            <td>@Html.EditorFor(m => m.DecriptionPro)</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                @Html.ValidationMessageFor(m => m.DecriptionPro)
-            </td>
-        </tr>
-        @*<tr>
-            <th>@Html.DisplayNameFor(m => m.Price)</th>
-            <td>@Html.EditorFor(m => m.Price)</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="color:red">
-                @Html.ValidationMessageFor(m => m.Price)
-            </td>
-        </tr>*@
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.IDCate)</th>
-            <td>@Html.DropDownListFor(m => m.IDCate, (SelectList)ViewBag.listCate, "Chọn danh mục")</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                @Html.ValidationMessageFor(m => m.IDCate)
-            </td>
-        </tr>
-        <tr>
-            <th>@Html.DisplayNameFor(m => m.ImagePro)</th>
-            <td>
-                <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnam/main/aonibanner.png" width="150" height="150" id="previewImg" />
-                <input type="file" name="ImagePath" id="ImagePath" />
-            </td>
+        <div class="mb-3 mt-3">
+            Tên sản phẩm
+            @Html.EditorFor(m => m.NamePro, new { htmlAttributes = new { @class = "form-control" } })
+            <div>@Html.ValidationMessageFor(m => m.NamePro)</div>
+        </div>
 
-        </tr>
-        <tr>
-            <td colspan="2">
-                @Html.ValidationMessageFor(m => m.ImagePro)
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Save" class="btn btn-danger" />
-            </td>
-        </tr>
-    </table>
-}
+        <div class="mb-3 mt-3">
+            Mô tả sản phẩm
+            @Html.TextAreaFor(m => m.DescriptionPro, new { @class = "form-control", rows = "5" })
+            <div>@Html.ValidationMessageFor(m => m.DescriptionPro)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Đơn giá
+            @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control" } })
+            <div>@Html.ValidationMessageFor(m => m.Price)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Chủng loại
+            @Html.DropDownListFor(m => m.IDCate, (SelectList)ViewBag.listCate, "Chọn danh mục")
+            <div>@Html.ValidationMessageFor(m => m.IDCate)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Màu
+            @Html.DropDownListFor(m => m.IDColor, (SelectList)ViewBag.listColor, "Chọn màu")
+            <div>@Html.ValidationMessageFor(m => m.IDColor)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Size
+            @Html.DropDownListFor(m => m.IDSize, (SelectList)ViewBag.listSize, "Chọn size")
+            <div>@Html.ValidationMessageFor(m => m.IDSize)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Nhà cung cấp
+            @Html.DropDownListFor(m => m.IDSup, (SelectList)ViewBag.listSup, "Chọn nhà cung cấp")
+            <div>@Html.ValidationMessageFor(m => m.IDSup)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Ảnh
+            <img src="https://raw.githubusercontent.com/Nomu-276/sanphamnam/main/aonibanner.png" width="150" height="150" id="previewImg" />
+            <input type="file" name="ImagePath" id="ImagePath" />
+            <div>@Html.ValidationMessageFor(m => m.ImagePro)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Tồn
+            @Html.EditorFor(m => m.RemainQuantity, new { htmlAttributes = new { @class = "form-control" } })
+            <div>@Html.ValidationMessageFor(m => m.RemainQuantity)</div>
+        </div>
+        @*<div class="mb-3 mt-3">
+            Lượt bán
+            @Html.EditorFor(m => m.SoldQuantity, new { htmlAttributes = new { @class = "form-control" } })
+            <div>@Html.ValidationMessageFor(m => m.SoldQuantity)</div>
+        </div>
+        <div class="mb-3 mt-3">
+            Lượt xem
+            @Html.EditorFor(m => m.ViewQuantity, new { htmlAttributes = new { @class = "form-control" } })
+            <div>@Html.ValidationMessageFor(m => m.ViewQuantity)</div>
+        </div>*@
+        <div>
+            <input type="submit" value="Lưu" class="btn btn-success" />
+            @Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-success" })
+        </div>
 
+</div>
 
-
-
-@Html.ActionLink("Quay về trang chủ", "Index", "Product", null, new { @class = "btn btn-success" })
-<script>
-    document.getElementById("ImagePath").addEventListener("change", function (event) {
-        let file = event.target.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById("previewImg").src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
+    }
+</div>
+    <script>
+        document.getElementById("ImagePath").addEventListener("change", function (event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("previewImg").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.OrderDetail>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPro.AddressDeliverry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProDetail.ID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderPro.AddressDeliverry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProDetail.ID)
+            </td>
+
+        </tr>
+    }
+
+</table>

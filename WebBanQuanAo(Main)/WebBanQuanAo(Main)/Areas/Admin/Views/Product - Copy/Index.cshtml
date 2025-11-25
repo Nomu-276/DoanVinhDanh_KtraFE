@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+@using (Html.BeginForm("Index", "Product"))
+{
+    <input type="number" name="_min" value="1" />
+    <input type="number" name="_max" value="1" />
+    <input type="submit" value="Filter" />
+}
+@Html.ActionLink("Thêm mới sản phẩm", "Create", null, new { @class = "btn btn-success" })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m => m.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.NamePro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.DecriptionPro)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(m => m.Price)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(m => m.IDCate)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(m => m.ImagePro)
+        </th>
+
+    </tr>
+    @foreach (var pro in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => pro.ProductID)</td>
+            <td>@Html.DisplayFor(m => pro.NamePro)</td>
+            <td>@Html.DisplayFor(m => pro.DecriptionPro)</td>
+            @*<td>@Html.DisplayFor(m => pro.Price)</td>*@
+            <td>@Html.DisplayFor(m => pro.IDCate)</td>
+            <td><img src="@Url.Content(pro.ImagePro)" width="200" height="300" /></td>
+            <td>
+                @Html.ActionLink("Sửa", "Sua", new { id = pro.ProductID }, new { @class = "btn btn-warning" })
+                @Html.ActionLink("Xóa", "Xoa", new { id = pro.ProductID }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Chi Tiết", "ChiTietAdmin", new { id = pro.ProductID }, new { @class = "btn btn-primary" })
+            </td>
+
+        </tr>
+    }
+</table>
+

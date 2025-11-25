@@ -4,27 +4,30 @@
     ViewBag.Title = "Sua";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Cập nhật tài khoản</h2>
-@using (Html.BeginForm("Sua", "Account", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.NameUser)</th>
-        <td>@Html.EditorFor(m => m.NameUser)</td>
-    </tr>
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.RoleUser)</th>
-        <td>@Html.EditorFor(m => m.RoleUser)</td>
-    </tr>
-    <tr>
-        <th>@Html.DisplayNameFor(m => m.PasswordUser)</th>
-        <td>@Html.EditorFor(m => m.PasswordUser)</td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" value="Cập nhật" /></td>
-    </tr>
-</table>
-}
-@Html.ActionLink("Quay về danh sách","Index","Account",null,new {@class="btn btn-success"})
+<link href="~/Content/Admin/CDED.css" rel="stylesheet" />
+<div class="admin-container">
+    <div class="admin-title text-center alert alert-info">Cập nhật tài khoản</div>
+    @using (Html.BeginForm("Sua", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="admin-form">
+            <div class="mb-3 mt-3">
+                <h4>Tên người dùng</h4>
+                @Html.EditorFor(m => m.NameUser, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="mb-3 mt-3">
+                <h4>Vai trò</h4>
+                @Html.EditorFor(m => m.RoleUser, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="mb-3 mt-3">
+                <h4>Mật khẩu</h4>
+                @Html.PasswordFor(m => m.PasswordUser, new { htmlAttributes = new { @class = "form-control" } })
+             </div>
+            <div>
+                <input type="submit" value="Cập nhật" class="btn btn-primary " />
+                @Html.ActionLink("Quay về danh sách", "Index", null, new { @class = "btn btn-success " })
+            </div>
+            
+        </div>
+    }
+</div>

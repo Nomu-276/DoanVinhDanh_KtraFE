@@ -3,12 +3,10 @@
 @{
     ViewBag.Title = "ChiTietAdmin";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
-    var details = ViewBag.Details as List<WebBanQuanAo_Main_.Models.ProDetail>;
+    
     var sizes = ViewBag.Sizes as List<WebBanQuanAo_Main_.Models.Size>;
     var colors = ViewBag.Colors as List<WebBanQuanAo_Main_.Models.Color>;
 
-    // Lấy giá đầu tiên trong ProDetail
-    var price = details.FirstOrDefault()?.Price ?? 0;
 }
 <link href="~/Content/Admin/Detail.css" rel="stylesheet" />
 
@@ -20,28 +18,18 @@
     <input type="hidden" id="ColorSelected" name="color" />
     <input type="hidden" id="SizeSelected" name="size" />
 
-
-
-
     <div class="container" style="margin-top:30px;">
         <div class="row">
 
-            @*ẢNH SẢN PHẨM*@
             <div class="col-md-7 col-sm-7">
                 <img src="@Url.Content(Model.ImagePro)" class="product-image" />
             </div>
 
-            @*THÔNG TIN SẢN PHẨM*@
             <div class="col-md-5 col-sm-5">
 
                 <h3 style="font-weight:600;">@Model.NamePro</h3>
-                <h4 style="font-weight:700;">@String.Format("{0:N0}₫", price)</h4>
-
-                @*MÀU*@
-
-
+                <h4 style="font-weight:700;">@String.Format("{0:N0}₫", Model.Price)</h4>
                 <div class="section-title">MÀU: @colors.FirstOrDefault().ColorName</div>
-
                 <div>
                     @foreach (var c in colors)
                     {
@@ -53,7 +41,6 @@
 
                 <div class="clearfix"></div>
 
-                @*SIZE*@
                 <div class="section-title">CHỌN KÍCH CỠ</div>
 
                 <div>
@@ -69,12 +56,8 @@
                     Hướng dẫn chọn kích cỡ
                 </a>
 
-
-                
-
-                @*MÔ TẢ*@
                 <div class="section-title">MÔ TẢ SẢN PHẨM</div>
-                <p>@Model.DecriptionPro</p>
+                <p>@Model.DescriptionPro</p>
 
             </div>
         </div>

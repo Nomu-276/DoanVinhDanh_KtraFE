@@ -4,36 +4,28 @@
     ViewBag.Title = "Them";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<link href="~/Content/Admin/CDED.css" rel="stylesheet" />
+<div class="admin-container">
+    <div class="admin-title text-center alert alert-success">Thêm mới danh mục</div>
 
-<h2>Form thêm mới danh mục</h2>
-@using (Html.BeginForm("Them", "Category", FormMethod.Post))
-{
-    @Html.AntiForgeryToken();
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(m => m.IDCate)
-            </th>
-            <td>
-                @Html.EditorFor(m => m.IDCate)
-            </td>
+    @using (Html.BeginForm("Them", "Category", FormMethod.Post))
+    {
 
-
-        </tr>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(m => m.NameCate)
-            </th>
-            <td>
-                @Html.EditorFor(m => m.NameCate)
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" value="Lưu" />
-            </td>
-        </tr>
-    </table>
-}
-@Html.ActionLink("Quay về danh sách", "DanhSachDanhMuc", null, new { @class = "btn btn-success" })
-
+        @Html.AntiForgeryToken();
+        
+        <div class="admin-form">
+                @Html.HiddenFor(m => m.IDCate)
+                <div class="mb-3 mt-3">
+                    <h4>Tên danh mục</h4>
+                    
+                    @Html.EditorFor(m => m.NameCate, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div>
+                    <input type="submit" value="Lưu" class="btn btn-success" />
+                    @Html.ActionLink("Quay về danh sách", "DanhSachDanhMuc", null, new { @class = "btn btn-success" })
+                </div>
+                
+        </div>
+    }
+   
+</div>
