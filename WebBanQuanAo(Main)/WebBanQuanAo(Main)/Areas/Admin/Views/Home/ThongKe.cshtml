@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebBanQuanAo_Main_.Models.ViewModel.ThongKeVM>
+
+@{
+    ViewBag.Title = "HOME";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="text-center mt-3">Trang quản trị</h2>
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h3 class="alert alert-warning text-center">THỐNG KÊ HÀNG HÓA TỪNG LOẠI</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>LOẠI HÀNG</th>
+                    <th>SỐ LƯỢNG</th>
+                    <th>GIÁ CAO NHẤT</th>
+                    <th>GIÁ THẤP NHẤT</th>
+                    <th>GIÁ TRUNG BÌNH</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CategoryName</td>
+                        <td>@item.Count</td>
+                        <td>@item.MaxPrice.ToString("N0") VNĐ</td>
+                        <td>@item.MinPrice.ToString("N0") VNĐ</td>
+                        <td>@item.AvgPrice.ToString("N0") VNĐ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <h3 class="alert alert-info text-center" >BIỂU ĐỒ THỐNG KÊ</h3>
+        <div id="piechart" style="width: 100%; height: 400px;" class="justify-content-lg-center"></div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Lấy dữ liệu JSON từ ViewBag
+            var jsonChartData = @Html.Raw(ViewBag.ChartDataJson);
+
+            // Chuyển dữ liệu JSON thành DataTable của Google Charts
+            var data = google.visualization.arrayToDataTable(jsonChartData);
+
+            var options = {
+                title: 'TỶ LỆ HÀNG HÓA',
+                is3D: true, // Hiển thị 3D như trong ảnh
+                // Nếu muốn màu sắc đẹp hơn, bạn có thể thêm: colors: ['#...']
+            };
+
+            // Khởi tạo và vẽ biểu đồ Pie Chart vào div#piechart
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+}
+

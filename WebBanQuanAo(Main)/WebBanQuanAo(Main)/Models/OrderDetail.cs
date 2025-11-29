@@ -19,6 +19,7 @@ namespace WebBanQuanAo_Main_.Models
         public int IDOrder { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
     
         public virtual OrderPro OrderPro { get; set; }
         public virtual Product Product { get; set; }

@@ -37,7 +37,7 @@
           <Property Name="DateOfBirth" Type="date" />
           <Property Name="PhoneCus" Type="nvarchar" MaxLength="15" />
           <Property Name="EmailCus" Type="nvarchar" MaxLength="100" />
-          <Property Name="PasswordCus" Type="nvarchar" MaxLength="100" />
+          <Property Name="NameUser" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -48,6 +48,7 @@
           <Property Name="IDOrder" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" />
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrice" Type="decimal" Precision="29" Scale="2" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="OrderPro">
           <Key>
@@ -56,11 +57,11 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateOrder" Type="date" />
           <Property Name="IDCus" Type="int" />
-          <Property Name="AddressDelivery" Type="nvarchar" MaxLength="255" />
           <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
           <Property Name="PaymentStatus" Type="nvarchar" MaxLength="20" />
-          <Property Name="OrderStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeliveryMethod" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShippingAddress" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -257,7 +258,7 @@
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="PhoneCus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="EmailCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderProes" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="OrderPro" />
         </EntityType>
         <EntityType Name="OrderDetail">
@@ -269,6 +270,7 @@
           <Property Name="IDOrder" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="29" Scale="2" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="OrderPro" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="OrderPro" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
         </EntityType>
@@ -279,11 +281,11 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateOrder" Type="DateTime" Precision="0" />
           <Property Name="IDCus" Type="Int32" />
-          <Property Name="AddressDelivery" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PaymentStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="OrderPro" ToRole="Customer" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderPro" ToRole="OrderDetail" />
         </EntityType>
@@ -411,7 +413,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBClothingStoreEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBClothingStoreEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Colors" EntityType="Self.Color" />
@@ -455,7 +457,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBClothingStoreModelStoreContainer" CdmEntityContainer="DBClothingStoreEntities1">
+        <EntityContainerMapping StorageEntityContainer="DBClothingStoreModelStoreContainer" CdmEntityContainer="DBClothingStoreEntities">
           <EntitySetMapping Name="AdminUsers">
             <EntityTypeMapping TypeName="DBClothingStoreModel.AdminUser">
               <MappingFragment StoreEntitySet="AdminUser">
@@ -490,7 +492,7 @@
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="PhoneCus" ColumnName="PhoneCus" />
                 <ScalarProperty Name="EmailCus" ColumnName="EmailCus" />
-                <ScalarProperty Name="PasswordCus" ColumnName="PasswordCus" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -502,6 +504,7 @@
                 <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -511,11 +514,11 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
                 <ScalarProperty Name="IDCus" ColumnName="IDCus" />
-                <ScalarProperty Name="AddressDelivery" ColumnName="AddressDelivery" />
                 <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
                 <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
                 <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="DeliveryMethod" ColumnName="DeliveryMethod" />
+                <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

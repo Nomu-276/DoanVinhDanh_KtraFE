@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBClothingStoreModelStoreContainer" CdmEntityContainer="DBClothingStoreEntities1">
+  <EntityContainerMapping StorageEntityContainer="DBClothingStoreModelStoreContainer" CdmEntityContainer="DBClothingStoreEntities">
     <EntitySetMapping Name="AdminUsers">
       <EntityTypeMapping TypeName="DBClothingStoreModel.AdminUser">
         <MappingFragment StoreEntitySet="AdminUser">
@@ -35,7 +35,7 @@
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="PhoneCus" ColumnName="PhoneCus" />
           <ScalarProperty Name="EmailCus" ColumnName="EmailCus" />
-          <ScalarProperty Name="PasswordCus" ColumnName="PasswordCus" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -47,6 +47,7 @@
           <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -56,11 +57,11 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
           <ScalarProperty Name="IDCus" ColumnName="IDCus" />
-          <ScalarProperty Name="AddressDelivery" ColumnName="AddressDelivery" />
           <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
           <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
           <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
-          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="DeliveryMethod" ColumnName="DeliveryMethod" />
+          <ScalarProperty Name="ShippingAddress" ColumnName="ShippingAddress" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

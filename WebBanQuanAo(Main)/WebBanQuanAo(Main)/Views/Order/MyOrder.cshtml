@@ -1,0 +1,43 @@
+﻿@model IEnumerable< WebBanQuanAo_Main_.Models.OrderPro>
+
+@{
+    ViewBag.Title = "MyOrder";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Lịch sử đơn hàng của tôi</h2>
+
+    @*<ul class="nav nav-tabs mb-4">
+        <li class="nav-item"><a class="nav-link active" href="#">Tất cả đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Chờ xử lý</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Đang giao</a></li>
+    </ul>*@
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center">Bạn chưa có đơn hàng nào.</div>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <div class="card mb-3 shadow-sm">
+                <div class="card-header d-flex justify-content-between bg-white">
+                    <span>Mã đơn: <strong>#@item.ID</strong></span>
+                    
+                </div>
+                <div class="card-body">
+                    <p class="mb-1">Ngày đặt: @(item.DateOrder.HasValue ? item.DateOrder.Value.ToString("dd/MM/yyyy HH:mm") : "")</p>
+                    <p class="mb-1">Địa chỉ giao: @item.ShippingAddress</p>
+                    <p class="mb-1">Tổng tiền: <strong class="text-danger">@string.Format("{0:N0}", item.TotalAmount) đ</strong></p>
+
+                    <div class="text-end mt-3">
+                        <a href="@Url.Action("OrderSuccess", "Order", new { id = item.ID })" class="btn btn-outline-primary btn-sm">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+

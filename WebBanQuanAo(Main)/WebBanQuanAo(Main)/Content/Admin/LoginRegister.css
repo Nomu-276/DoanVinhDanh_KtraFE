@@ -1,63 +1,21 @@
-﻿body {
+﻿
+/* auth.css */
+body {
+    font-family: Arial, sans-serif; /* Font tối giản */
+    background-color: #fff;
+    color: #333;
 }
-/* CSS đã định nghĩa ở câu trả lời trước */
+
 .auth-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    text-align: center;
-}
-
-    .auth-container h2 {
-        font-weight: 700;
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-    }
-
-.form-control-lg {
-    height: 50px;
-    border-radius: 0;
-    margin-bottom: 20px;
-    padding: 10px 15px;
-}
-
-.btn-dark-main {
-    background-color: black;
-    color: white;
-    border: 1px solid black;
-    width: 100%;
-    padding: 12px 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 0;
-    margin-bottom: 10px;
-}
-
-.btn-white-main {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    width: 100%;
-    padding: 12px 0;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 0;
-}
-
-.validation-message {
-    color: red;
-    font-size: 0.9em;
-    display: block;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    text-align: left;
-}
-/*đăng kí*/
-/* CSS Tương tự như form Đăng nhập */
-.auth-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 450px; /* Chiều rộng cố định cho form */
+    
+    padding: 30px 20px;
     text-align: center;
 }
 
@@ -66,15 +24,24 @@
     font-size: 1.5rem;
     margin-bottom: 30px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+/* Kiểu input lớn, không bo góc */
 .form-control-lg {
     height: 50px;
     border-radius: 0;
     margin-bottom: 20px;
     padding: 10px 15px;
+    border: 1px solid #000; /* Viền đậm hơn */
 }
 
+.form-control-lg:focus {
+    box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.25); /* Focus box-shadow nhẹ */
+    border-color: #000;
+}
+
+/* Nút chính (Đăng nhập/Đăng ký) */
 .btn-dark-main {
     background-color: black;
     color: white;
@@ -85,8 +52,15 @@
     text-transform: uppercase;
     border-radius: 0;
     margin-bottom: 10px;
+    transition: background-color 0.2s;
 }
 
+    .btn-dark-main:hover {
+        background-color: #333;
+        color: white;
+    }
+
+/* Nút phụ (Quay lại đăng nhập/Tiếp tục đăng ký) */
 .btn-white-main {
     background-color: white;
     color: black;
@@ -98,16 +72,15 @@
     border-radius: 0;
 }
 
-.validation-message {
-    color: red;
-    font-size: 0.9em;
-    display: block;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    text-align: left;
+.btn-white-main:hover {
+    background-color: #f8f8f8;
 }
 
+/* Căn lề trái cho label */
 .form-group label {
     text-align: left;
     display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 5px;
 }

@@ -13,10 +13,10 @@ namespace WebBanQuanAo_Main_.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBClothingStoreEntities1 : DbContext
+    public partial class DBClothingStoreEntities : DbContext
     {
-        public DBClothingStoreEntities1()
-            : base("name=DBClothingStoreEntities1")
+        public DBClothingStoreEntities()
+            : base("name=DBClothingStoreEntities")
         {
         }
     

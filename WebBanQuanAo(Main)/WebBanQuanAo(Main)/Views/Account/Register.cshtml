@@ -1,0 +1,67 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<link href="~/Content/Admin/LoginRegister.css" rel="stylesheet" />
+<div class="auth-container">
+    <h2>TRỞ THÀNH THÀNH VIÊN NOMIE</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @* Hiển thị lỗi tổng quan nếu có *@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="EmailCus" class="small fw-bold">Email *</label>
+            @Html.EditorFor(m => m.EmailCus, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Email" } })
+            @Html.ValidationMessageFor(m => m.EmailCus, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="NameUser" class="small fw-bold">Tên đăng nhập *</label>
+            @Html.EditorFor(m => m.NameUser, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Tên đăng nhập" } })
+            @Html.ValidationMessageFor(m => m.NameUser, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="NameCus" class="small fw-bold">Họ và Tên *</label>
+            @Html.EditorFor(m => m.NameCus, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Họ và Tên" } })
+            @Html.ValidationMessageFor(m => m.NameCus, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="PhoneCus" class="small fw-bold">Số điện thoại *</label>
+            @Html.EditorFor(m => m.PhoneCus, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Số điện thoại" } })
+            @Html.ValidationMessageFor(m => m.PhoneCus, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="DateOfBirth" class="small fw-bold">Ngày sinh *</label>
+            @Html.EditorFor(m => m.DateOfBirth, new { htmlAttributes = new { @class = "form-control form-control-lg", type = "date" } })
+            @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="PasswordUser" class="small fw-bold">Mật khẩu *</label>
+            @Html.PasswordFor(m => m.PasswordUser, new { @class = "form-control form-control-lg", placeholder = "Mật khẩu" })
+            @Html.ValidationMessageFor(m => m.PasswordUser, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="ConfirmPassword" class="small fw-bold">Xác nhận mật khẩu *</label>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control form-control-lg", placeholder = "Xác nhận mật khẩu" })
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group mt-4">
+            <input type="submit" value="TRỞ THÀNH THÀNH VIÊN CỦA NOMIE" class="btn btn-dark-main" />
+        </div>
+
+        <div class="form-group">
+            @Html.ActionLink("QUAY LẠI ĐĂNG NHẬP", "Login", "Account", null, new { @class = "btn btn-white-main" })
+        </div>
+    }
+</div>

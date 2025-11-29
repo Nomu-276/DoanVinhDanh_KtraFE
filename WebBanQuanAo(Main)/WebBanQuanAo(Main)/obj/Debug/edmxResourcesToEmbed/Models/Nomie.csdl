@@ -34,7 +34,7 @@
     <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
     <Property Name="PhoneCus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="EmailCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PasswordCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="OrderProes" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="OrderPro" />
   </EntityType>
   <EntityType Name="OrderDetail">
@@ -46,6 +46,7 @@
     <Property Name="IDOrder" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="29" Scale="2" annotation:StoreGeneratedPattern="Computed" />
     <NavigationProperty Name="OrderPro" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="OrderPro" />
     <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
   </EntityType>
@@ -56,11 +57,11 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DateOrder" Type="DateTime" Precision="0" />
     <Property Name="IDCus" Type="Int32" />
-    <Property Name="AddressDelivery" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PaymentStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="OrderPro" ToRole="Customer" />
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderPro" ToRole="OrderDetail" />
   </EntityType>
@@ -188,7 +189,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBClothingStoreEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="DBClothingStoreEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Colors" EntityType="Self.Color" />

@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a6c6e5851dae464f927cce7fccf16a4d" Name="Diagram1">
-        <EntityTypeShape EntityType="DBClothingStoreModel.AdminUser" Width="1.5" PointX="8" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Category" Width="1.5" PointX="1.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Color" Width="1.5" PointX="5.625" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Customer" Width="1.5" PointX="10.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.OrderDetail" Width="1.5" PointX="5.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.OrderPro" Width="1.5" PointX="8" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Product" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Size" Width="1.5" PointX="1.125" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBClothingStoreModel.Supplier" Width="1.5" PointX="1.125" PointY="4.125" IsExpanded="true" />
+      <Diagram DiagramId="6a259df518bf45f18d107be14b1a90a9" Name="Diagram1">
+        <EntityTypeShape EntityType="DBClothingStoreModel.AdminUser" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Category" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Color" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Customer" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.OrderPro" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Size" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBClothingStoreModel.Supplier" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
         <AssociationConnector Association="DBClothingStoreModel.FK_Product_Category" ManuallyRouted="false" />
         <AssociationConnector Association="DBClothingStoreModel.FK_Product_Color" ManuallyRouted="false" />
         <AssociationConnector Association="DBClothingStoreModel.FK_Order_Customer" ManuallyRouted="false" />

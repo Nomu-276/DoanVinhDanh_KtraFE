@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -131,20 +137,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CartController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\CheckoutController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginRegisterController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderProesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SizesController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuppliersController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeCusController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductCusController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -152,18 +158,15 @@
     <Compile Include="Models\AdminUser.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CheckoutVM.cs" />
     <Compile Include="Models\Color.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\Nomie.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,17 +188,28 @@
     <Compile Include="Models\OrderPro.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PartialClasses.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductSearchVM.cs" />
     <Compile Include="Models\Size.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
       <DependentUpon>Nomie.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\Cart.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Metadata.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
+    <Compile Include="Models\ProductSearchCusVM.cs" />
+    <Compile Include="Models\ViewModel\CartService.cs" />
+    <Compile Include="Models\ViewModel\CheckoutVM.cs" />
+    <Compile Include="Models\ViewModel\EditAccountVM.cs" />
+    <Compile Include="Models\ViewModel\HomeProductVM.cs" />
+    <Compile Include="Models\ViewModel\LoginVM.cs" />
+    <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
+    <Compile Include="Models\ViewModel\RegisterVM.cs" />
+    <Compile Include="Models\ViewModel\ThongKeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,8 +237,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\TrangLamWeb\chitietsanpham.css" />
-    <Content Include="Content\TrangLamWeb\dangki.css" />
     <Content Include="Content\TrangLamWeb\dangnhap.css" />
     <Content Include="Content\TrangLamWeb\giohang.css" />
     <Content Include="Content\TrangLamWeb\layout1.css" />
@@ -340,18 +354,6 @@
     <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Sua.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Xoa.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\IndexCustomer.cshtml" />
-    <Content Include="Areas\Admin\Views\LoginRegister\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\LoginRegister\Register.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Them.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Sua.cshtml" />
-    <Content Include="Areas\Admin\Views\Account\Xoa.cshtml" />
-    <Content Include="Areas\Admin\Views\Product\ChiTiet.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_MasterLayout.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\IndexCus.cshtml" />
-    <Content Include="Areas\Admin\Views\Cart\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ChiTietAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Create.cshtml" />
@@ -372,13 +374,6 @@
     <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Index.cshtml" />
-    <EntityDeploy Include="Models\Nomie.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Nomie.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Nomie.edmx.diagram">
-      <DependentUpon>Nomie.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Colors\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Details.cshtml" />
@@ -389,7 +384,19 @@
     <Content Include="Areas\Admin\Views\OrderProes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\OrderProes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderProes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Checkout\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ThongKe.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
+    <EntityDeploy Include="Models\Nomie.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Nomie.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Nomie.edmx.diagram">
+      <DependentUpon>Nomie.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -420,10 +427,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutTrangChu.cshtml" />
+    <Content Include="Views\HomeCus\Index.cshtml" />
     <Content Include="Views\TrangChu\TrangChu.cshtml" />
     <Content Include="Views\TrangChu\DanhSachSanPham.cshtml" />
     <Content Include="Views\TrangChu\ChiTietSanPham.cshtml" />
@@ -439,11 +443,22 @@
     <Content Include="Views\TrangChu\TaiKhoan.cshtml" />
     <Content Include="Views\TrangChu\XacNhanDonHang.cshtml" />
     <Content Include="Views\TrangChu\LichSuDonHang.cshtml" />
+    <Content Include="Views\Order\OrderSuccess.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\PVListProduct.cshtml" />
+    <Content Include="Views\ProductCus\Index.cshtml" />
+    <Content Include="Views\ProductCus\ChiTiet.cshtml" />
+    <Content Include="Views\Shared\_MasterLayout.cshtml" />
+    <Content Include="Views\Account\ProfileInfo.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\Order\MyOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Models\ViewModel\" />
     <Folder Include="picture\TreEm\sanpham\" />
   </ItemGroup>
   <ItemGroup>

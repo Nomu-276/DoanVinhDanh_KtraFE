@@ -25,7 +25,7 @@ namespace WebBanQuanAo_Main_.Models
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string PhoneCus { get; set; }
         public string EmailCus { get; set; }
-        public string PasswordCus { get; set; }
+        public string NameUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderPro> OrderProes { get; set; }

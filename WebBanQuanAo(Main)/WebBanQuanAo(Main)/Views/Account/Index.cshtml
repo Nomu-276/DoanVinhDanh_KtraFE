@@ -1,0 +1,100 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.EditAccountVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    .profile-form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+    }
+
+    .form-control {
+        border-radius: 0;
+        height: 40px;
+    }
+
+    .btn-black {
+        background: #000;
+        color: #fff;
+        border-radius: 0;
+        width: 100%;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+        .btn-black:hover {
+            color: #ccc;
+            text-decoration: none;
+        }
+</style>
+
+<div class="container">
+    <div class="profile-form">
+        <h3 class="text-center text-uppercase">Cập nhật hồ sơ</h3>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">@TempData["SuccessMessage"]</div>
+        }
+
+        @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.NameUser) @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <h5 class="text-uppercase mt-4">Thông tin chung</h5>
+            <hr />
+
+            <div class="form-group">
+                <label>Họ và tên</label>
+                @Html.TextBoxFor(m => m.NameCus, new { @class = "form-control", @readonly = "readonly", @style = "background:#f9f9f9" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PhoneCus)
+                @Html.TextBoxFor(m => m.PhoneCus, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneCus, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.EmailCus)
+                @Html.TextBoxFor(m => m.EmailCus, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EmailCus, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.DateOfBirth)
+                @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+            </div>
+
+            <h5 class="text-uppercase mt-5">Đổi mật khẩu (Bỏ trống nếu không đổi)</h5>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.NewPassword)
+                @Html.PasswordFor(m => m.NewPassword, new { @class = "form-control", placeholder = "Nhập mật khẩu mới" })
+                @Html.ValidationMessageFor(m => m.NewPassword, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Nhập lại mật khẩu mới" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-black">LƯU THAY ĐỔI</button>
+            </div>
+
+            <div class="text-center">
+                <a href="@Url.Action("ProfileInfo", "Account")">Xem thông tin chi tiết</a>
+            </div>
+        }
+    </div>
+</div>
+

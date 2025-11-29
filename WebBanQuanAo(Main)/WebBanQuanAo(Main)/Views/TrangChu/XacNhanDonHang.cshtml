@@ -1,125 +1,113 @@
-﻿
+﻿@model WebBanQuanAo_Main_.Areas.Admin.Controllers.OrderConfirmationViewModel
+
 @{
-    ViewBag.Title = "XacNhanDonHang";
-    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+    ViewBag.Title = "Xác nhận Đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+
+    var order = Model.Order;
+    var details = Model.OrderDetails;
+    decimal shippingFee = 8.00M;
 }
 
-<link href="~/Content/TrangLamWeb/xacnhandonhang.css" rel="stylesheet" />
+<style>
+    /* CSS Tối giản như H&M */
+    .confirmation-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+    }
 
-<section class="xacnhan-donhang">
-    <div class="xn-container">
-        <div class="xn-card">
-            <h1>Đơn hàng của bạn đã được đặt</h1>
-            <p class="xn-sub">Cảm ơn bạn đã mua hàng. Chi tiết đơn hàng được hiển thị bên dưới.</p>
+    .confirmation-header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
 
-            <div id="order-view" style="display:none;">
-                <div class="xn-meta">
-                    <div><strong>Mã đơn:</strong> <span id="orderId"></span></div>
-                    <div><strong>Ngày đặt:</strong> <span id="orderDate"></span></div>
-                    <div><strong>Trạng thái:</strong> <span id="orderStatus"></span></div>
-                </div>
+    .confirmation-info {
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        padding: 20px 0;
+        margin-bottom: 30px;
+    }
 
-                <div class="xn-block">
-                    <h3>Thông tin khách hàng</h3>
-                    <div class="xn-grid">
-                        <div><strong>Họ tên</strong><div id="custName"></div></div>
-                        <div><strong>Điện thoại</strong><div id="custPhone"></div></div>
-                        <div><strong>Email</strong><div id="custEmail"></div></div>
-                    </div>
-                </div>
+    .detail-section h3 {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
 
-                <div class="xn-block">
-                    <h3>Địa chỉ giao hàng</h3>
-                    <div id="shipCity"></div>
-                    <div id="shipAddress"></div>
-                </div>
+    .total-summary span {
+        font-weight: bold;
+    }
+</style>
 
-                <div class="xn-block">
-                    <h3>Sản phẩm</h3>
-                    <table class="xn-table" id="itemsTable">
-                        <thead>
-                            <tr><th>Sản phẩm</th><th>SL</th><th>Đơn giá</th><th>Thành tiền</th></tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
+<div class="container confirmation-container my-5">
 
-                <div class="xn-totals">
-                    <div><span>Tạm tính:</span><span id="subtotal"></span></div>
-                    <div><span>Giảm giá:</span><span id="voucherDiscount"></span></div>
-                    <div><span>Phí vận chuyển:</span><span id="deliveryFee"></span></div>
-                    <div class="xn-total"><span>Tổng:</span><span id="grandTotal"></span></div>
-                </div>
+    <div class="text-center confirmation-header mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000" class="bi bi-check-circle mb-3" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m-2.75-5.908L10.03 6.91a.5.5 0 0 0-.708-.708L7.22 9.293l-1.514-1.514a.5.5 0 0 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0z" />
+        </svg>
+        <h1 class="text-uppercase mb-3">Đặt hàng thành công!</h1>
+        <p class="lead">Cảm ơn bạn. Đơn hàng của bạn đang được xử lý.</p>
+        <h2 class="h5 mt-4">Mã đơn hàng: <strong class="text-dark">#@order.ID</strong></h2>
+    </div>
 
-                <div class="xn-actions">
-                    <button id="btnPrint" class="xn-btn">In hoá đơn</button>
-                    <a class="xn-btn ghost" href="TrangChu">Về trang chủ</a>
-                    <a class="xn-btn" href="LichSuDonHang">Lịch sử giao hàng</a>
-                </div>
+    <div class="row confirmation-info">
+
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h3 class="fw-bold fs-6 mb-3">Thông tin giao hàng</h3>
+            <p class="mb-1 small"><strong>Ngày đặt:</strong> @order.DateOrder.ToString("dd/MM/yyyy")</p>
+            <p class="mb-1 small"><strong>Địa chỉ:</strong> @order.AddressDelivery</p>
+            <p class="mb-1 small"><strong>Phương thức TT:</strong> @order.PaymentMethod</p>
+            <p class="mb-1 small"><strong>Tình trạng:</strong> @order.OrderStatus</p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="fw-bold fs-6 mb-3">Tóm tắt thanh toán</h3>
+            <div class="d-flex justify-content-between mb-1">
+                <span class="small">Tổng tiền sản phẩm:</span>
+                <span class="small">@String.Format("{0:N2}", order.TotalAmount - shippingFee) $</span>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+                <span class="small">Phí vận chuyển:</span>
+                <span class="small">@String.Format("{0:N2}", shippingFee) $</span>
+            </div>
+            <div class="d-flex justify-content-between border-top pt-2 mt-3 total-summary">
+                <span>TỔNG CỘNG:</span>
+                <span class="fs-5">@String.Format("{0:N2}", order.TotalAmount) $</span>
             </div>
         </div>
     </div>
-</section>
-<script src="~/Scripts/TrangLamWeb/checkout.js"></script>
-<script>
-    (function () {
-        function formatVND(n) {
-            n = Number(n) || 0;
-            return '₫' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-        }
 
-        var raw = null;
-        try { raw = localStorage.getItem('lastOrder'); } catch (e) { raw = null; }
+    <h3 class="detail-section h6 fw-bold text-uppercase mt-4 mb-3">Sản phẩm đã đặt</h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th class="fw-bold">Sản phẩm</th>
+                    <th class="text-center fw-bold">Số lượng</th>
+                    <th class="text-end fw-bold">Đơn giá ($)</th>
+                    <th class="text-end fw-bold">Thành tiền ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in details)
+                {
+                    <tr>
+                        <td>@detail.Product.NamePro</td>
+                        <td class="text-center">@detail.Quantity</td>
+                        <td class="text-end">@String.Format("{0:N2}", detail.UnitPrice)</td>
+                        <td class="text-end">@String.Format("{0:N2}", detail.Quantity * detail.UnitPrice)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-        if (!raw) {
-            document.getElementById('no-order').style.display = '';
-            return;
-        }
+    <div class="text-center mt-5">
+        <a href="@Url.Action("Account", "LoginRegister")" class="btn btn-outline-dark btn-lg me-3 rounded-0">Xem Lịch sử Đơn hàng</a>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-dark btn-lg rounded-0">Tiếp tục mua sắm</a>
+    </div>
 
-        var order = null;
-        try { order = JSON.parse(raw); } catch (e) { order = null; }
-
-        if (!order) {
-            document.getElementById('no-order').style.display = '';
-            return;
-        }
-
-        document.getElementById('order-view').style.display = '';
-        document.getElementById('orderId').textContent = order.id || '';
-        document.getElementById('orderDate').textContent = order.createdAt ? (new Date(order.createdAt)).toLocaleString() : '';
-        document.getElementById('orderStatus').textContent = order.status || '';
-
-        document.getElementById('custName').textContent = (order.customer && order.customer.name) || '';
-        document.getElementById('custPhone').textContent = (order.customer && order.customer.phone) || '';
-        document.getElementById('custEmail').textContent = (order.customer && order.customer.email) || '';
-
-        document.getElementById('shipCity').textContent = (order.shipping && order.shipping.city) || '';
-        document.getElementById('shipAddress').textContent = (order.shipping && order.shipping.address) || '';
-
-        var tbody = document.querySelector('#itemsTable tbody');
-        tbody.innerHTML = '';
-        if (order.items && order.items.length) {
-            order.items.forEach(function (it) {
-                var price = Number(String(it.price).replace(/[^0-9\-]/g, '')) || 0;
-                var qty = parseInt(it.quantity || 0, 10) || 0;
-                var line = price * qty;
-                var tr = document.createElement('tr');
-                tr.innerHTML = '<td>' + (it.name || '') + '</td>' +
-                    '<td class="center">' + qty + '</td>' +
-                    '<td class="right">' + formatVND(price) + '</td>' +
-                    '<td class="right">' + formatVND(line) + '</td>';
-                tbody.appendChild(tr);
-            });
-        }
-
-        document.getElementById('subtotal').textContent = formatVND((order.totals && order.totals.subtotal) || 0);
-        document.getElementById('voucherDiscount').textContent = formatVND((order.totals && order.totals.voucher) || 0);
-        document.getElementById('deliveryFee').textContent = formatVND((order.totals && order.totals.delivery) || 0);
-        document.getElementById('grandTotal').textContent = formatVND((order.totals && order.totals.total) || 0);
-
-        document.getElementById('btnPrint').addEventListener('click', function () { window.print(); });
-
-        
-    })();
-</script>
-
+</div>

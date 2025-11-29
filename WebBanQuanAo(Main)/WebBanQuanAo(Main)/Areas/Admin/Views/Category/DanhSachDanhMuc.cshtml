@@ -17,22 +17,23 @@
 </style>
 <h2 class="table mt-3 mb-3 alert alert-secondary">DANH SÁCH DANH MỤC SẢN PHẨM</h2>
 <div class="container">
-    <table class="table">
+    <table class="table ">
         <tr class="">
-            <th>
+            <th class="col-md-4">
                 Tên danh mục
             </th>
-            
-            <th></th>
+            <th class="col-md-4">Tổng hàng hóa</th>
+
+            <th class="col-md-4"></th>
         </tr>
         @foreach (var cate in Model)
         {
             <tr>
-                <td style="font-size:20px;" class=" col-md-9 col-lg-9">
+                <td style="font-size:20px;" class="col-md-4">
                     @Html.DisplayName(cate.NameCate)
                 </td>
-                
-                <td class=" col-md-4 col-lg-4 ">
+                <td class="col-md-4">@cate.Products.Count()</td>
+                <td class="col-md-4">
                     <div class="row">
                         <div class="col-lg-3 boxbtn">@Html.ActionLink("Sửa", "Sua", new { id = cate.IDCate }, new { @class = "btn btn-warning nut" })</div>
                         <div class="col-lg-3 boxbtn ">@Html.ActionLink("Xóa", "Xoa", new { id = cate.IDCate }, new { @class = "btn btn-danger nut" })</div>

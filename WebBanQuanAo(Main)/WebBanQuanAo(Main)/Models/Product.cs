@@ -24,7 +24,6 @@ namespace WebBanQuanAo_Main_.Models
         public string NamePro { get; set; }
         public string DescriptionPro { get; set; }
         public Nullable<int> IDCate { get; set; }
-        
         public Nullable<int> IDSup { get; set; }
         public Nullable<int> IDColor { get; set; }
         public Nullable<int> IDSize { get; set; }

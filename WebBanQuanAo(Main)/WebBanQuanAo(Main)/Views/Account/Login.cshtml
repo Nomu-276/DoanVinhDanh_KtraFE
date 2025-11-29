@@ -1,0 +1,63 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<link href="~/Content/Admin/LoginRegister.css" rel="stylesheet" />
+<div class="auth-container">
+    <h2>ĐĂNG NHẬP</h2>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert" style="text-align: center; margin-bottom: 20px;">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "login-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        if (ViewBag.ErrLogin != null || !ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger validation-message" role="alert" style="text-align: center;">
+                @Html.ValidationSummary(true, "", new { @class = "validation-message" })
+                @ViewBag.ErrLogin
+            </div>
+        }
+
+        <div class="form-group">
+            <label for="NameUser" class="d-block text-left small fw-bold">Tên đăng nhập</label>
+            @Html.EditorFor(m => m.NameUser, new { htmlAttributes = new { @class = "form-control form-control-lg", placeholder = "Email" } })
+            @Html.ValidationMessageFor(m => m.NameUser, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group">
+            <label for="PasswordUser" class="d-block text-left small fw-bold">Mật khẩu</label>
+            @Html.PasswordFor(m => m.PasswordUser, new { @class = "form-control form-control-lg", placeholder = "Mật khẩu" })
+            @Html.ValidationMessageFor(m => m.PasswordUser, "", new { @class = "validation-message" })
+        </div>
+
+        <div class="form-group text-left mb-4">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rememberMe">
+                <label class="form-check-label small" for="rememberMe">Ghi nhớ cho lần đăng nhập sau</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="ĐĂNG NHẬP" class="btn btn-dark-main" />
+        </div>
+
+        <div class="form-group">
+            @Html.ActionLink("TIẾP TỤC ĐĂNG KÝ", "Register", null, new { @class = "btn btn-white-main" })
+        </div>
+
+        <div class="text-center mt-3">
+            <a href="#" class="text-dark text-decoration-underline small">QUÊN MẬT KHẨU?</a>
+        </div>
+    }
+</div>
+

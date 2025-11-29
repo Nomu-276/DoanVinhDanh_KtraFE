@@ -1,0 +1,113 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.Cart
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<script type="text/javascript">
+    // Hàm cập nhật số lượng giữ nguyên
+    function cartUpdateQuantity(id, newQuantity) {
+        if (newQuantity < 1) return;
+        // Lưu ý: Logic update này đang dựa trên ID.
+        // Nếu muốn update chính xác dòng (theo size/màu), bạn cần sửa thêm logic JS và Controller để nhận biết dòng nào.
+        // Tạm thời giữ nguyên để chạy tính năng cơ bản.
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.action = '@Url.Action("UpdateQuantity", "Cart")';
+
+        const idInput = document.createElement('input');
+        idInput.type = 'hidden';
+        idInput.name = 'id';
+        idInput.value = id;
+        form.appendChild(idInput);
+
+        const quantityInput = document.createElement('input');
+        quantityInput.type = 'hidden';
+        quantityInput.name = 'quantity';
+        quantityInput.value = newQuantity;
+        form.appendChild(quantityInput);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+
+<link href="~/Content/Admin/Cart.css" rel="stylesheet" />
+
+<div class="container my-5 cart-wrapper">
+    <h1 class="text-uppercase mb-4 fw-bold">GIỎ HÀNG CỦA BẠN</h1>
+@* Sử dụng Model.Items thay vì Model vì Cart chứa List items *@
+@if (Model.Items == null || !Model.Items.Any())
+    {
+        <div class="text-center py-5">
+            <p class="lead">Giỏ hàng đang trống.</p>
+            <a href="@Url.Action("Index","ProductCus")" class="btn btn-dark mt-3">TIẾP TỤC MUA SẮM</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-lg-7 pr-lg-5">
+                @foreach (var item in Model.Items)
+                {
+                    <div class="row py-3 mb-3 border-bottom cart-item-detail">
+                        <div class="col-4 col-sm-3">
+                            <img src="@Url.Content(item.image)" class="img-fluid" alt="@item.namePro" />
+                        </div>
+
+                        <div class="col-8 col-sm-9">
+                            <p class="mb-1 text-uppercase fw-bold small text-muted">@item.Category</p>
+                            <h5 class="mb-2 fw-bold">@item.namePro</h5>
+
+                            <div class="small text-muted mb-3 d-flex flex-column">
+                                <span>Màu sắc: <strong>@item.Color</strong></span>
+                                <span>Kích cỡ: <strong>@item.Size</strong></span>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-3 quantity-control-simple">
+                                <a href="@Url.Action("DecreaseQuantity", "Cart", new { id = item.idPro })" class="btn-qty border px-2 py-1 me-2 text-decoration-none text-dark">−</a>
+                                <span class="fw-bold me-2">@item.quantity</span>
+                                <a href="@Url.Action("IncreaseQuantity", "Cart", new { id = item.idPro })" class="btn-qty border px-2 py-1 text-decoration-none text-dark">+</a>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="fw-bold mb-0 text-dark">
+                                    Thành tiền: @String.Format("{0:N0}", item.total) đ
+                                </p>
+                                <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.idPro })" class="text-danger small text-decoration-underline" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
+                                    Xóa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-5 summary-box-simple mt-4 mt-lg-0 bg-light p-4">
+                <h2 class="h4 text-uppercase fw-bold mb-4">TỔNG ĐƠN HÀNG</h2>
+
+                <div class="d-flex justify-content-between mb-2 small">
+                    <span>TẠM TÍNH</span>
+                    <span>@String.Format("{0:N0}", Model.TotalValue()) đ</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 small">
+                    <span>PHÍ GIAO HÀNG</span>
+                    <span>Miễn phí</span>
+                </div>
+
+                <div class="d-flex justify-content-between pt-3 border-top fw-bold h5">
+                    <span class="text-uppercase">TỔNG CỘNG</span>
+                    <span class="text-danger">@String.Format("{0:N0}", Model.TotalValue()) đ</span>
+                </div>
+
+                <a href="@Url.Action("Checkout","Order")" class="btn btn-dark w-100 py-3 mt-4 fw-bold rounded-0 text-uppercase">
+                    TIẾP TỤC THANH TOÁN
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+
+

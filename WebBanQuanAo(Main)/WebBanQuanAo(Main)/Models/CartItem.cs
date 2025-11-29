@@ -9,18 +9,14 @@ namespace WebBanQuanAo_Main_.Models
     {
         public int idPro { get; set; }
         public string namePro { get; set; }
-        public string image { get; set; }
-        public decimal price { get; set; }
         public int quantity { get; set; }
-
-        // THÊM:
-        public string color { get; set; }
-        public string size { get; set; }
-
-        public decimal total
-        {
-            get { return price * quantity; }
-        }
+        public decimal Price { get; set; }
+        public string image { get; set; }
+        public string Size { get; set; }
+        public string Color { get; set; }
+        public string Category { get; set; }
+        // Tổng gia cho moi san pham
+        public decimal total => quantity * Price;
     }
 
 }

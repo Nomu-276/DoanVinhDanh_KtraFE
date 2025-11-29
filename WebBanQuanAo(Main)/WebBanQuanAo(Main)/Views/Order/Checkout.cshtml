@@ -1,0 +1,196 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.CheckoutVM
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<style>
+    /* HM Style Minimalist CSS */
+    .hm-container {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #222;
+    }
+
+    .hm-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+
+    .hm-subtitle {
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+    }
+
+    /* Form Inputs */
+    .form-control {
+        border-radius: 0;
+        border: 1px solid #707070;
+        height: 45px;
+    }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #000;
+        }
+
+    /* Order Summary Box */
+    .order-summary {
+        background-color: #f4f4f4;
+        padding: 25px;
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .summary-total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    /* Custom Button */
+    .btn-hm {
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        border-radius: 0;
+        padding: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: opacity 0.3s;
+    }
+
+        .btn-hm:hover {
+            background-color: #333;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+    /* Radio Inputs Custom */
+    .custom-radio-group label {
+        display: block;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .product-thumb {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        border: 1px solid #eee;
+    }
+</style>
+
+<div class="container hm-container" style="margin-top: 30px; margin-bottom: 50px;">
+    <h2 class="hm-title text-center">Thanh toán</h2>
+
+    @using (Html.BeginForm("Checkout", "Order", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.CustomerID)
+        @Html.HiddenFor(m => m.Username)
+        @Html.HiddenFor(m => m.TotalAmount)
+
+        <div class="row">
+            <div class="col-md-7">
+
+                <div class="mb-4">
+                    <h3 class="hm-subtitle">1. Địa chỉ giao hàng</h3>
+                    <div class="form-group">
+                        <label>Địa chỉ nhận hàng</label>
+                        @Html.EditorFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập số nhà, tên đường..." } })
+                        @Html.ValidationMessageFor(model => model.ShippingAddress, "", new { @class = "text-danger" })
+                    </div>
+                    <small class="text-muted">Chúng tôi sẽ giao hàng đến địa chỉ này.</small>
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="hm-subtitle">2. Phương thức giao hàng</h3>
+                    <div class="custom-radio-group">
+                        <label>
+                            @Html.RadioButtonFor(m => m.ShippingMethod, "Giao tiêu chuẩn", new { @checked = "checked" })
+                            Giao hàng tiêu chuẩn (3-5 ngày) - Miễn phí
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.ShippingMethod, "Giao nhanh")
+                            Giao hàng nhanh (1-2 ngày) - 30.000đ
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.ShippingMethod, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-4">
+                    <h3 class="hm-subtitle">3. Phương thức thanh toán</h3>
+                    <div class="custom-radio-group">
+                        <label>
+                            @Html.RadioButtonFor(m => m.PaymentMethod, "Tiền mặt", new { @checked = "checked" })
+                            Thanh toán khi nhận hàng (COD)
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.PaymentMethod, "Chuyển khoản")
+                            Chuyển khoản ngân hàng (QR Code)
+                        </label>
+                        <label>
+                            @Html.RadioButtonFor(m => m.PaymentMethod, "Ví điện tử")
+                            Ví Momo / ZaloPay
+                        </label>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.PaymentMethod, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="order-summary">
+                    <h3 class="hm-subtitle">Tóm tắt đơn hàng</h3>
+
+                    <div class="cart-items-list mb-3">
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <div class="d-flex mb-3 align-items-center">
+                                <img src="@item.image" alt="@item.namePro" class="product-thumb mr-3" />
+                                <div>
+                                    <div style="font-weight: 600;">@item.namePro</div>
+                                    <small>SL: @item.quantity x @item.Price.ToString("N0")đ</small>
+                                </div>
+                                <div class="ml-auto">
+                                    @item.total.ToString("N0")đ
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tạm tính:</span>
+                        <span>@Model.TotalAmount.ToString("N0")đ</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí giao hàng:</span>
+                        <span>0đ</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Tổng cộng:</span>
+                        <span>@Model.TotalAmount.ToString("N0")đ</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-hm mt-3">HOÀN TẤT ĐẶT HÀNG</button>
+
+                    <div class="text-center mt-2">
+                        <a href="@Url.Action("Index", "Cart")" style="color: #666; text-decoration: underline; font-size: 0.9rem;">Quay lại giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

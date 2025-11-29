@@ -8,18 +8,18 @@
     margin-top: 50px !important;
 }
 
-    /* Tiêu đề chính */
+     Tiêu đề chính 
     .cart-wrapper h1 {
         font-size: 2.5rem;
         letter-spacing: 2px;
     }
 
-/* Chi tiết sản phẩm */
+ Chi tiết sản phẩm 
 .cart-item-detail {
     border-color: #eee !important;
 }
 
-/* Điều khiển số lượng */
+ Điều khiển số lượng 
 .quantity-control-simple .btn-qty {
     width: 30px;
     height: 30px;
@@ -33,12 +33,12 @@
     font-size: 1rem;
 }
 
-/* CỘT TÓM TẮT */
+ CỘT TÓM TẮT 
 .summary-box-simple h2 {
     letter-spacing: 1px;
 }
 
-/* Nút thanh toán */
+ Nút thanh toán 
 .btn-dark {
     background-color: black !important;
     border-color: black !important;
@@ -50,7 +50,8 @@
         border-color: #333 !important;
     }
 
-/* Liên kết footer */
+ Liên kết footer 
 .summary-box-simple a.text-dark:hover {
     color: #555 !important;
 }
+

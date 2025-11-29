@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
@@ -7,13 +9,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using WebBanQuanAo_Main_.Models;
+using WebBanQuanAo_Main_.Models.ViewModel;
 
 
 namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
-        DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
+        DBClothingStoreEntities db = new DBClothingStoreEntities();
 
         // GET: Product
         public ActionResult IndexCustomer(int? cateId)
@@ -34,15 +37,55 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Index(string searchTerm)
+        public ActionResult Index(string searchTerm , decimal? minPrice, decimal? 
+            maxPrice, string sortOrder , int? page)
         {
             var model = new ProductSearchVM();
+            var products = db.Products.AsQueryable();
+            //Tìm kiếm theo từ khóa
+            if(!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.NamePro.Contains(searchTerm)||
+                p.DescriptionPro.Contains(searchTerm)||
+                p.Category.NameCate.Contains(searchTerm)
+                );
+            }
+            //Tìm kiếm theo giá tối thiểu
+            if (minPrice.HasValue)
+            {
+                products = products.Where(p => p.Price >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                products = products.Where(p => p.Price <= maxPrice.Value);
+            }
+            //Sắp xếp dựa trên lựa chọn của người dùng
+            switch (sortOrder)
+            {
+                case "name_asc":
+                    products = products.OrderBy(p => p.NamePro);
+                    break;
+                case "name_desc": products = products.OrderByDescending(p => p.NamePro);
+                    break;
+                case "price_asc": products = products.OrderBy(p => p.Price);
+                    break;
+                case "price_desc":products = products.OrderByDescending(p => p.Price);
+                    break;
+                default:products=products.OrderBy(p=>p.NamePro);
+                    break;
+            }
+            model.SortOrder = sortOrder;
 
-            var products = db.Products.Include("Category").ToList()
-                .AsQueryable();
-            
+            // đoạn code liên quan tới phân trang nếu
+            // lấy số trang hiện tại (mặc định là 1 nếu không có giá trị)
+            int pageNumber = page ?? 1;
+            int pageSize = 10; // số sản phẩm trên mỗi trang
 
-            return View(products);
+            //đóng lệnh này sử dụng ToPagedList lấy danh sách đã phân trang
+
+            //model.Products = products.ToList();
+            model.Products = products.ToPagedList(pageNumber, pageSize);
+            return View(model);
 
         }
 
@@ -57,7 +100,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product pro)
+        public ActionResult Create(Product pro, List<int> selectedSizeIds)
         {
             ViewBag.listSup = new SelectList(db.Suppliers, "IDSup", "NameSup");
             ViewBag.listSize = new SelectList(db.Sizes, "IDSize", "SizeName");
@@ -73,10 +116,12 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
                     fileName = fileName + extension;
                     pro.ImagePath.SaveAs(Path.Combine(Server.MapPath("~/hinh/"), fileName));
                     pro.ImagePro = "~/hinh/" + fileName;
+
                 }
                 pro.CreatedDate = DateTime.Now;
                 pro.SoldQuantity = 0;
                 pro.ViewQuantity = 0;
+
                 foreach (var item in ModelState)
                 {
                     foreach (var error in item.Value.Errors)
@@ -84,6 +129,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
                         System.Diagnostics.Debug.WriteLine(item.Key + ": " + error.ErrorMessage);
                     }
                 }
+
                 db.Products.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Index");

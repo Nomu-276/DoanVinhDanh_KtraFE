@@ -10,10 +10,7 @@ namespace WebBanQuanAo_Main_.Models
     [MetadataType(typeof(AdminUserMetadata))]
     public partial class AdminUser
     {
-        [NotMapped]
-
-        [Compare("PasswordUser", ErrorMessage = "Mật khẩu xác nhận không khớp")]
-        public string ConfirmPassword { get; set; }
+        
     }
     [MetadataType(typeof(ProductMetadata))]
     public partial class Product

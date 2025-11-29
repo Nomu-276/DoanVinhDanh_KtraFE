@@ -1,0 +1,74 @@
+﻿@model WebBanQuanAo_Main_.Models.OrderPro
+
+@{
+    ViewBag.Title = "OrderSuccess";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterLayout.cshtml";
+    
+}
+
+<div class="container confirmation-container my-5">
+
+    <div class="text-center confirmation-header mb-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#000" class="bi bi-check-circle mb-3" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m-2.75-5.908L10.03 6.91a.5.5 0 0 0-.708-.708L7.22 9.293l-1.514-1.514a.5.5 0 0 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0z" />
+        </svg>
+        <h1 class="text-uppercase mb-3">Đặt hàng thành công!</h1>
+        <p class="lead">Cảm ơn bạn. Đơn hàng của bạn đang được xử lý.</p>
+        <h2 class="h5 mt-4">Mã đơn hàng: <strong class="text-dark">#@Model.ID</strong></h2>
+    </div>
+
+    <div class="row confirmation-info">
+
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h3 class="fw-bold fs-6 mb-3">Thông tin giao hàng</h3>
+            <p class="mb-1 small"><strong>Ngày đặt:</strong> @Model.DateOrder</p>
+            <p class="mb-1 small"><strong>Địa chỉ:</strong> @Model.ShippingAddress</p>
+            <p class="mb-1 small"><strong>Phương thức TT:</strong> @Model.PaymentMethod</p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="fw-bold fs-6 mb-3">Tóm tắt thanh toán</h3>
+            <div class="d-flex justify-content-between mb-1">
+                <span class="small">Tổng tiền sản phẩm:</span>
+                <span class="small">@String.Format("{0:N2}", Model.TotalAmount) $</span>
+            </div>
+            
+            <div class="d-flex justify-content-between border-top pt-2 mt-3 total-summary">
+                <span>TỔNG CỘNG:</span>
+                <span class="fs-5">@String.Format("{0:N2}", Model.TotalAmount) $</span>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="detail-section h6 fw-bold text-uppercase mt-4 mb-3">Sản phẩm đã đặt</h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th class="fw-bold">Sản phẩm</th>
+                    <th class="text-center fw-bold">Số lượng</th>
+                    <th class="text-end fw-bold">Đơn giá ($)</th>
+                    <th class="text-end fw-bold">Thành tiền ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.OrderDetails)
+                {
+                    <tr>
+                        <td>@detail.Product.NamePro</td>
+                        <td class="text-center">@detail.Quantity</td>
+                        <td class="text-end">@String.Format("{0:N2}", detail.UnitPrice)</td>
+                        <td class="text-end">@String.Format("{0:N2}", detail.Quantity * detail.UnitPrice)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="@Url.Action("Account", "LoginRegister")" class="btn btn-outline-dark btn-lg me-3 rounded-0">Xem Lịch sử Đơn hàng</a>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-dark btn-lg rounded-0">Tiếp tục mua sắm</a>
+    </div>
+
+</div>
+

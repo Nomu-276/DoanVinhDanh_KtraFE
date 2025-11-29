@@ -13,7 +13,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class OrderDetailsController : Controller
     {
-        private DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
+        private DBClothingStoreEntities db = new DBClothingStoreEntities();
 
         // GET: Admin/OrderDetails
         public ActionResult Index()

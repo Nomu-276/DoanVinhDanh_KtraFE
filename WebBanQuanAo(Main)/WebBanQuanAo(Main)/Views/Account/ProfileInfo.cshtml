@@ -1,0 +1,36 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.EditAccountVM
+
+@{
+    ViewBag.Title = "ProfileInfo";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="container" style="margin-top: 50px; max-width: 600px;">
+    <h2 class="text-center text-uppercase alert alert-primary">Thông tin cá nhân</h2>
+    <hr />
+    <dl class="dl-horizontal  " style="font-size: 16px; ">
+        <dt>Họ và tên:</dt>
+        <dd>@Model.NameCus</dd>
+
+        <dt>Tên đăng nhập:</dt>
+        <dd>@Model.NameUser</dd>
+
+        <dt>Số điện thoại:</dt>
+        <dd>@Model.PhoneCus</dd>
+
+        <dt>Email:</dt>
+        <dd>@Model.EmailCus</dd>
+        <dt>Ngày sinh:</dt>
+        <dd>@Model.DateOfBirth</dd>
+    </dl>
+    <div class="mt-4 row">
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Account")" class="btn btn-primary">Chỉnh sửa thông tin</a>
+        </div>
+        <div class="col-md-3"><a href="@Url.Action("Logout","Account")" class="btn btn-danger">Đăng xuất</a></div>
+        <div class="col-md-4"><a href="@Url.Action("#","#")" style="color:white" class="btn btn-warning">Lịch sử mua hàng</a></div>
+    </div>
+    
+</div>
+
+

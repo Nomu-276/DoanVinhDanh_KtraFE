@@ -1,0 +1,74 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.ProductSearchVM
+@using PagedList.Mvc
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+@if (Model.Products != null && Model.Products.Any())
+{
+    @*<h2 class="alert alert-info">DANH SÁCH SẢN PHẨM</h2>*@
+    <div class="container">
+        <div class="mt-3">
+            @Html.ActionLink("Thêm mới sản phẩm", "Create", null, new { @class = "btn btn-success" })
+        </div>
+
+        <table class="table alert alert-info table-responsive">
+            <tr>
+                <th class="  col-md-2">
+                    Ảnh
+                </th>
+                <th class=" col-md-3">
+                    Tên sản phẩm
+                </th>
+
+                <th class=" col-md-1">
+                    Đơn giá
+                </th>
+                <th class=" col-md-2">
+                    Chủng loại
+                </th>
+
+                <th class=" col-md-1">
+                    Tồn
+                </th>
+                <th class=" col-md-4"></th>
+            </tr>
+            @foreach (var pro in Model.Products)
+            {
+                <tr>
+                    <td><img src="@Url.Content(pro.ImagePro)" width="250" height="350" /></td>
+                    <td>@Html.DisplayFor(m => pro.NamePro)</td>
+
+                    <td>@String.Format("{0:N0}₫", pro.Price)</td>
+                    <td>@Html.DisplayFor(m => pro.Category.NameCate)</td>
+                    <td>@Html.DisplayFor(m => pro.RemainQuantity)</td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Sua", new { id = pro.ProductID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Xóa", "Xoa", new { id = pro.ProductID }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Chi Tiết", "ChiTietAdmin", new { id = pro.ProductID }, new { @class = "btn btn-primary" })
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+    //Hiển thị phân trang
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.Products, page => Url.Action("Index", new
+        {
+            page,
+            searchTerm = Model.SearchTerm,
+        minPrice = Model.MinPrice,
+            maxPrice = Model.MaxPrice,
+            sortOrder = Model.SortOrder
+        }))
+    </div>
+}
+else
+{
+    <div class="alert alert-warning mt-3">
+        Không tìm thấy sản phẩm nào.
+    </div>
+}

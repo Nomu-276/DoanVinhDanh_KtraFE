@@ -7,13 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebBanQuanAo_Main_.Models;
+
 using EntityState = System.Data.Entity.EntityState;
 
 namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
 {
     public class CustomersController : Controller
     {
-        private DBClothingStoreEntities1 db = new DBClothingStoreEntities1();
+        private DBClothingStoreEntities db = new DBClothingStoreEntities();
 
         // GET: Admin/Customers
         public ActionResult Index()
