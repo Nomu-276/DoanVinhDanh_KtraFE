@@ -33,6 +33,7 @@
     <Property Name="PhoneCus" Type="nvarchar" MaxLength="15" />
     <Property Name="EmailCus" Type="nvarchar" MaxLength="100" />
     <Property Name="NameUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressCus" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="OrderDetail">
     <Key>

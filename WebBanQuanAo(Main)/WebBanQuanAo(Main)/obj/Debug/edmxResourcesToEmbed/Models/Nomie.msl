@@ -36,6 +36,7 @@
           <ScalarProperty Name="PhoneCus" ColumnName="PhoneCus" />
           <ScalarProperty Name="EmailCus" ColumnName="EmailCus" />
           <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="AddressCus" ColumnName="AddressCus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

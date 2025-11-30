@@ -15,7 +15,7 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
 
         [Required(ErrorMessage = "Vui lòng nhập tên đăng nhập")]
         [StringLength(30, MinimumLength = 5, ErrorMessage = "Tên đăng nhập từ 5 đến 30 ký tự")]
-        //[RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Tên đăng nhập chỉ được chứa chữ cái, số và dấu gạch dưới")]
+        [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Tên đăng nhập chỉ được chứa chữ cái, số và dấu gạch dưới")]
         [Display(Name = "Tên đăng nhập")]
         public string NameUser {  get; set; }
 
@@ -46,7 +46,11 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         [Display(Name ="Email")]
         [DataType(DataType.EmailAddress)]
         public string EmailCus { get; set; }
-        
+
+        [Required]
+        [Display(Name ="Địa chỉ")]
+        [StringLength(150, MinimumLength = 8, ErrorMessage = "Mật khẩu phải có ít nhất 8 đến 150 ký tự")]
+        public string AddressCus { get; set; }
         [Required]
         [Display(Name ="Ngày sinh")]
         [DataType(DataType.DateTime)]

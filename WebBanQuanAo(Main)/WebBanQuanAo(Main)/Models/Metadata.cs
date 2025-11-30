@@ -37,16 +37,16 @@ namespace WebBanQuanAo_Main_.Models
     {
         [Display(Name = "Mã sản phẩm")]
         public int ProductID { get; set; }
-        [StringLength(50,MinimumLength =4, ErrorMessage = "Tên sản phẩm không được vượt quá 50 ký tự và có ít nhất 4 ký tự")]
+        [StringLength(100,MinimumLength =4, ErrorMessage = "Tên sản phẩm không được vượt quá 100 ký tự và có ít nhất 4 ký tự")]
         [Display(Name = "Tên sản phẩm")]
         public string NamePro { get; set; }
-        [StringLength(200, ErrorMessage = "Mô tả sản phẩm không được vượt quá 200 ký tự")]
+        [StringLength(250, ErrorMessage = "Mô tả sản phẩm không được vượt quá 250 ký tự")]
         [Display(Name = "Mô tả sản phẩm")]
         public string DescriptionPro { get; set; }
         [Display(Name = "Mã danh mục")]
         public string IDCate { get; set; }
         [Display(Name = "Đường dẫn ảnh sản phẩm")]
-        [RegularExpression(@"^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|jfif|bmp|webp))$", ErrorMessage = "Vui lòng nhập đúng định dạng URL hình ảnh")]
+        //[RegularExpression(@"^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|jfif|bmp|webp))$", ErrorMessage = "Vui lòng nhập đúng định dạng URL hình ảnh")]
         //[DefaultValue("~/Content/hinh/default_img.jfif")]
         public string ImagePro { get; set; }
         public Nullable<int> IDSup { get; set; }

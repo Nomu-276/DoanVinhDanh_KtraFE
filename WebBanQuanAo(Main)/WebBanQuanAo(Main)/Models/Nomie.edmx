@@ -38,6 +38,7 @@
           <Property Name="PhoneCus" Type="nvarchar" MaxLength="15" />
           <Property Name="EmailCus" Type="nvarchar" MaxLength="100" />
           <Property Name="NameUser" Type="nvarchar" MaxLength="100" />
+          <Property Name="AddressCus" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -259,6 +260,7 @@
           <Property Name="PhoneCus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="EmailCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AddressCus" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderProes" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="OrderPro" />
         </EntityType>
         <EntityType Name="OrderDetail">
@@ -493,6 +495,7 @@
                 <ScalarProperty Name="PhoneCus" ColumnName="PhoneCus" />
                 <ScalarProperty Name="EmailCus" ColumnName="EmailCus" />
                 <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="AddressCus" ColumnName="AddressCus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

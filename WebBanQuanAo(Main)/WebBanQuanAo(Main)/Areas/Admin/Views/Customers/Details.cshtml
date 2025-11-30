@@ -1,0 +1,72 @@
+﻿@model WebBanQuanAo_Main_.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="alert alert-info">Chi tiết khách hàng</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCus)
+        </dd>
+
+        <dt>
+            Họ và Tên khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameCus)
+        </dd>
+
+        <dt>
+            Ngày sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneCus)
+        </dd>
+
+        <dt>
+            Mail khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailCus)
+        </dd>
+        <dt>
+            Địa chỉ khách hàng
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AddressCus)
+        </dd>
+        <dt>
+            Tên người dùng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameUser)
+        </dd>
+
+    </dl>
+</div>
+
+   
+@Html.ActionLink("Back to List", "Index")
+

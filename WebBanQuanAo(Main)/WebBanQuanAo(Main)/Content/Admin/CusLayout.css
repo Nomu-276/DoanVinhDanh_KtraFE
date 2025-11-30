@@ -1,0 +1,73 @@
+﻿body {
+}
+ /*Giỏ hàng*/
+        .cart-badge {
+            position: absolute;
+            top: -5px; /* Đẩy lên trên icon một chút */
+            right: 0px;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 11px; /* Cỡ chữ nhỏ gọn */
+            font-weight: bold;
+            border: 2px solid #fff; /* Viền trắng để tách biệt với icon */
+            min-width: 18px; /* Đảm bảo hình tròn không bị méo */
+            text-align: center;
+        }
+
+        /* 1. Thẻ cha: Quan trọng nhất là position relative */
+        .nav-bar-menu {
+            position: relative; /* Giữ menu con nằm trong phạm vi của nó */
+            display: inline-block; /* Để các mục menu nằm hàng ngang */
+            padding: 10px 20px; /* Tạo khoảng cách để dễ rê chuột */
+            cursor: pointer;
+        }
+
+        /* 2. Menu con (Dropdown): Bỏ height/width cứng */
+        .nav-bar-item {
+            display: none; /* Ẩn mặc định */
+            position: absolute;
+            top: 100%; /* Hiện ngay bên dưới thẻ cha */
+            left: 0; /* Canh trái bằng với thẻ cha */
+
+            min-width: 150px; /* Chiều rộng tối thiểu để không bị quá bé */
+            background-color: white;
+            /* Trang trí cho đẹp */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Đổ bóng nổi lên */
+            z-index: 100; /* Đảm bảo menu nằm đè lên ảnh banner/slider */
+            border-radius: 4px; /* Bo góc nhẹ */
+            padding: 10px 0; /* Khoảng cách trên dưới bên trong khung */
+            
+            
+        }
+
+        /* 3. Hiệu ứng Hover: Di chuột vào cha thì hiện con */
+        .nav-bar-menu:hover .nav-bar-item {
+            display: block;
+        }
+
+        /* 4. Các mục bên trong menu con */
+        .fm-menu-item {
+            display: block; /* Mỗi link nằm trên 1 dòng */
+            color: black;
+            padding: 10px 20px; /* Khoảng cách chữ với viền */
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu mượt */
+            white-space: nowrap; /* Giữ chữ trên 1 dòng, không xuống dòng */
+        }
+
+        /* 5. Hover vào từng mục con */
+        .nav-bar-item .fm-menu-item:hover {
+            background-color: #f1f1f1; /* Màu nền xám nhẹ khi hover */
+            color: #ff0000; /* Đổi màu chữ nếu thích */
+        }
+
+        /* CSS cho Link chính (Chữ "Nữ") */
+        .nav-bar-menu > a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+        }

@@ -5,21 +5,21 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="alert" style="color:orangered;background-color:moccasin">QUẢN LÍ TÀI KHOẢN</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo tài khoản", "Create", null, new {@class="btn btn-success"})
 </p>
-<table class="table">
+<table class="table table-responsive">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NameUser)
+            Tên người dùng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RoleUser)
+            Vai trò người dùng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PasswordUser)
+            Mật khẩu người dùng
         </th>
         <th></th>
     </tr>
@@ -36,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.PasswordUser)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Sửa", "Edit", new { id=item.ID }, new { @class = "btn btn-warning" }) |
+            
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

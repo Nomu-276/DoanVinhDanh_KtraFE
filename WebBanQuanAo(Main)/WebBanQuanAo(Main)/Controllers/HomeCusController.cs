@@ -20,7 +20,12 @@ namespace WebBanQuanAo_Main_.Controllers
 
             return View(products);
         }
-
-        
+        public ActionResult MenuDanhmuc()
+        {
+            // Lấy danh sách danh mục từ DB
+            var cate = db.Categories.ToList();
+            return PartialView("MenuDanhmuc", cate);
+        }
     }
+
 }

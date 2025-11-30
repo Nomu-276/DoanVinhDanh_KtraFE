@@ -1,0 +1,57 @@
+﻿@model IEnumerable< WebBanQuanAo_Main_.Models.OrderPro>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="container my-5">
+    <h2 class="text-uppercase mb-4">Lịch sử mua hàng</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">Bạn chưa có đơn hàng nào. <a href="@Url.Action("Index", "HomeCus")">Mua sắm ngay</a></div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Ngày đặt</th>
+                        <th>Địa chỉ nhận</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>#@item.ID</td>
+                            <td>@item.DateOrder.Value.ToString("dd/MM/yyyy")</td>
+                            <td>@item.ShippingAddress</td>
+                            <td class="fw-bold">@String.Format("{0:N0}", item.TotalAmount) đ</td>
+                            <td>
+                                @if (item.PaymentStatus == "Chờ xử lý")
+                                {<span class="badge bg-warning text-dark">@item.PaymentStatus</span> }
+                            else if (item.PaymentStatus == "Đã giao")
+                            { <span class="badge bg-success">@item.PaymentStatus</span> }
+                        else
+                        { <span class="badge bg-secondary">@item.PaymentStatus</span>}
+                            </td>
+
+                            <td>
+                                <a href="@Url.Action("OrderSuccess", "Order", new { id = item.ID })" class="btn btn-sm btn-info text-white">Chi tiết</a>
+                            </td>
+                        </tr>
+                    }
+                
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+

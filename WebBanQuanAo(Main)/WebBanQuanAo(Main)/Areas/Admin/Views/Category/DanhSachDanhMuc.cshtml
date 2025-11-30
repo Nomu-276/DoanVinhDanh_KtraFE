@@ -31,6 +31,7 @@
             <tr>
                 <td style="font-size:20px;" class="col-md-4">
                     @Html.DisplayName(cate.NameCate)
+                    @Html.ValidationMessage(cate.NameCate)
                 </td>
                 <td class="col-md-4">@cate.Products.Count()</td>
                 <td class="col-md-4">

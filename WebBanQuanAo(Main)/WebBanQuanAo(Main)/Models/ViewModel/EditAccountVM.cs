@@ -8,12 +8,11 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
 {
     public class EditAccountVM
     {
-        // --- Phần thông tin hiển thị và sửa ---
         [Display(Name = "Họ và tên")]
         public string NameCus { get; set; }
 
         [Display(Name = "Tên đăng nhập")]
-        public string NameUser { get; set; } // Chỉ hiển thị, không cho sửa
+        public string NameUser { get; set; } 
 
         [Display(Name = "Số điện thoại")]
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
@@ -29,7 +28,6 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
 
-        // --- Phần đổi mật khẩu (Không bắt buộc nhập nếu không muốn đổi) ---
         [Display(Name = "Mật khẩu mới")]
         [DataType(DataType.Password)]
         [StringLength(100, MinimumLength = 6, ErrorMessage = "Mật khẩu phải từ 6 ký tự")]
@@ -39,5 +37,9 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         [DataType(DataType.Password)]
         [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không khớp")]
         public string ConfirmPassword { get; set; }
+        
+        [Display(Name = "Địa chỉ")]
+        [StringLength(150, MinimumLength = 8, ErrorMessage = "Mật khẩu phải có ít nhất 8 đến 150 ký tự")]
+        public string AddressCus { get; set; }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model WebBanQuanAo_Main_.Models.ViewModel.ProductSearchVM
+@{var categories = ViewBag.Categories as List<WebBanQuanAo_Main_.Models.Category>
+
+              ; }
+@using PagedList.Mvc
+<link href="~/Content/Admin/DanhSachSanPham.css" rel="stylesheet" />
+
+@if (Model.Products != null && Model.Products.Any())
+{
+
+
+    <div class="product-grid">
+        @foreach (var item in Model.Products)
+        {
+            <div class="product-card">
+                <a href="@Url.Action("ChiTiet", "ProductCus", new { id = item.ProductID })">
+                    <img src="@Url.Content(item.ImagePro)" alt="@item.NamePro" />
+                </a>
+
+                <div class="product-name">@item.NamePro</div>
+
+                <div class="product-price">@String.Format("₫{0:N0}", item.Price)</div>
+            </div>
+        }
+    </div>
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.Products, page => Url.Action("Index", new
+        {
+            page,
+            searchTerm = Model.SearchTerm,
+        minPrice = Model.MinPrice,
+            maxPrice = Model.MaxPrice,
+            sortOrder = Model.SortOrder
+        }))
+    </div>
+}
+else
+{
+<div class="alert alert-warning mt-3">
+    Không tìm thấy sản phẩm nào.
+</div>
+    
+}

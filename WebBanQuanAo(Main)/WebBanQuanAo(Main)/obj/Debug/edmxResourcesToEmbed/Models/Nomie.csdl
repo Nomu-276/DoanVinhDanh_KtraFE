@@ -35,6 +35,7 @@
     <Property Name="PhoneCus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
     <Property Name="EmailCus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AddressCus" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="OrderProes" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="OrderPro" />
   </EntityType>
   <EntityType Name="OrderDetail">

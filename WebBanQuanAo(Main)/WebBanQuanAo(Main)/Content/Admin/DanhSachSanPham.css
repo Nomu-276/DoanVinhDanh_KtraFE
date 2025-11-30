@@ -1,12 +1,27 @@
 ﻿body {
 }
 .category-menu {
-    display: flex;
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
     gap: 20px;
     padding: 20px 40px;
     font-size: 18px;
 }
-
+@media (max-width: 992px) {
+    .category-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .category-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .category-menu {
+        grid-template-columns: 1fr;
+    }
+}
 .category-menu a {
     text-decoration: none;
     font-weight: 500;
@@ -24,8 +39,9 @@
 /* Laptop nhỏ (max-width: 992px): 3 cột */
 @media (max-width: 992px) {
     .product-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 /* Tablet (max-width: 768px): 2 cột */
@@ -63,3 +79,4 @@
     font-size: 15px;
     margin-top: 2px;
 }
+

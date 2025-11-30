@@ -22,7 +22,7 @@
                 Mail
             </th>
             <th>
-                Mật khẩu khách hàng
+                Địa chỉ khách hàng
             </th>
             <th></th>
         </tr>
@@ -43,11 +43,11 @@
                     @Html.DisplayFor(modelItem => item.EmailCus)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PasswordCus)
+                    @Html.DisplayFor(modelItem => item.AddressCus)
                 </td>
                 <td>
 
-                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.IDCus }) |
+                    @Html.ActionLink("Chi Tiết", "Details", new { id = item.IDCus })
 
                 </td>
             </tr>

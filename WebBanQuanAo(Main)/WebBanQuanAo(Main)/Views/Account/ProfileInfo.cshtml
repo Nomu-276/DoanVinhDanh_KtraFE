@@ -17,18 +17,20 @@
 
         <dt>Số điện thoại:</dt>
         <dd>@Model.PhoneCus</dd>
-
+        <dt>Địa chỉ:</dt>
+        <dd>@Model.AddressCus</dd>
         <dt>Email:</dt>
         <dd>@Model.EmailCus</dd>
         <dt>Ngày sinh:</dt>
         <dd>@Model.DateOfBirth</dd>
+
     </dl>
     <div class="mt-4 row">
         <div class="col-md-4">
             <a href="@Url.Action("Index", "Account")" class="btn btn-primary">Chỉnh sửa thông tin</a>
         </div>
         <div class="col-md-3"><a href="@Url.Action("Logout","Account")" class="btn btn-danger">Đăng xuất</a></div>
-        <div class="col-md-4"><a href="@Url.Action("#","#")" style="color:white" class="btn btn-warning">Lịch sử mua hàng</a></div>
+        <div class="col-md-4"><a href="@Url.Action("History","Order")" style="color:white" class="btn btn-warning">Lịch sử mua hàng</a></div>
     </div>
     
 </div>

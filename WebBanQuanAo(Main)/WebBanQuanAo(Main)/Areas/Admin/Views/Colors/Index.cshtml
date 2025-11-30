@@ -5,12 +5,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="alert alert-warning" >QUẢN LÍ MÀU SẮC</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo Màu", "Create", null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
+<table class="table table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ColorName)
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.ColorName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDColor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDColor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDColor })
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDColor }, new { @class = "btn btn-warning" }) |
+            
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDColor }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

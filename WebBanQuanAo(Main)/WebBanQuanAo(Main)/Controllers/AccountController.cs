@@ -29,7 +29,7 @@ namespace WebBanQuanAo_Main_.Controllers
         {
             if (ModelState.IsValid)
             {
-                // 1. Kiểm tra tên đăng nhập đã tồn tại chưa [cite: 155]
+                // 1. Kiểm tra tên đăng nhập đã tồn tại chưa
                 var checkUser = db.AdminUsers.FirstOrDefault(s => s.NameUser == model.NameUser);
                 if (checkUser != null)
                 {
@@ -38,52 +38,31 @@ namespace WebBanQuanAo_Main_.Controllers
                 }
                 else
                 {
-// 2. Tạo bản ghi User mới [cite: 158]
+                // 2. Tạo bản ghi User mới
                     var user = new AdminUser
                     {
                         NameUser = model.NameUser,
-                        PasswordUser = model.PasswordUser, // Lưu ý: Nên mã hóa mật khẩu trong thực tế
+                        PasswordUser = model.PasswordUser,
 
                         RoleUser = "Customer" // Gán quyền là Khách hàng
                     };
                 db.AdminUsers.Add(user);
 
-                // 3. Tạo bản ghi Customer mới [cite: 159]
+                // 3. Tạo bản ghi Customer mới
                 var customer = new Customer
                 {
                     NameCus = model.NameCus,
                     EmailCus = model.EmailCus,
                     PhoneCus = model.PhoneCus,
                     DateOfBirth = model.DateOfBirth,
-                    NameUser = model.NameUser // Liên kết với bảng User qua Username
+                    AddressCus = model.AddressCus,
+                    NameUser = model.NameUser
                 };
                 db.Customers.Add(customer);
 
-                // 4. Lưu cả 2 vào CSDL [cite: 160]
-                //db.SaveChanges();
-                try
-                {
                     db.SaveChanges();
-                }
-                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-                {
-                    // Lấy danh sách lỗi cụ thể
-                    var errorMessages = ex.EntityValidationErrors
-                            .SelectMany(x => x.ValidationErrors)
-                            .Select(x => x.ErrorMessage);
-
-                    // Nối các lỗi lại thành 1 chuỗi để hiển thị
-                    var fullErrorMessage = string.Join("; ", errorMessages);
-
-                    // Gán lỗi vào exception message để xem ngay trên màn hình vàng
-                    var exceptionMessage = string.Concat(ex.Message, " Lỗi chi tiết: ", fullErrorMessage);
-
-                    // Ném lỗi mới có kèm chi tiết ra ngoài
-                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-                }
-
-                // 5. Chuyển hướng về trang đăng nhập hoặc trang chủ
-                return RedirectToAction("Login", "Account");
+              
+               
                 }
                     
             }
@@ -104,26 +83,23 @@ namespace WebBanQuanAo_Main_.Controllers
         {
             if (ModelState.IsValid)
             {
-                // 1. Kiểm tra tài khoản trong DB (UserRole phải là Customer) [cite: 176]
                 var user = db.AdminUsers.SingleOrDefault(u => u.NameUser == model.NameUser
                                                       && u.PasswordUser == model.PasswordUser
                                                       && u.RoleUser == "Customer");
 
                 if (user != null)
                 {
-                    // 2. Lưu trạng thái đăng nhập vào Session [cite: 177]
                     Session["NameUser"] = user.NameUser;
                     Session["RoleUser"] = user.RoleUser;
 
-                    // 3. Lưu cookie xác thực (để duy trì đăng nhập) [cite: 178]
                     FormsAuthentication.SetAuthCookie(user.NameUser, false);
 
-                    // 4. Chuyển hướng về trang chủ [cite: 182]
+                   
                     return RedirectToAction("Index", "HomeCus");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng.");
+                    ModelState.AddModelError(",", "Tên đăng nhập hoặc mật khẩu không đúng.");
                 }
             }
             return View(model);
@@ -150,14 +126,14 @@ namespace WebBanQuanAo_Main_.Controllers
 
             if (customer == null) return RedirectToAction("ProfileInfo", "Account");
 
-            // Map dữ liệu sang ViewModel
+            
             var model = new EditAccountVM
             {
                 NameCus = customer.NameCus,
                 NameUser = customer.NameUser,
                 PhoneCus = customer.PhoneCus,
                 EmailCus = customer.EmailCus,
-                //Address = customer.Address, // Bỏ comment nếu DB đã có cột Address
+                AddressCus = customer.AddressCus, 
                 DateOfBirth = customer.DateOfBirth
             };
 
@@ -181,8 +157,9 @@ namespace WebBanQuanAo_Main_.Controllers
                 NameUser = customer.NameUser,
                 PhoneCus = customer.PhoneCus,
                 EmailCus = customer.EmailCus,
+                AddressCus= customer.AddressCus,
+                DateOfBirth = customer.DateOfBirth,
                 
-                DateOfBirth = customer.DateOfBirth
             };
 
             return View(model);
@@ -201,23 +178,23 @@ namespace WebBanQuanAo_Main_.Controllers
                 {
                     string currentUserName = Session["NameUser"].ToString();
 
-                    // 1. Cập nhật bảng Customer (Thông tin cá nhân)
+                    // 1. Cập nhật bảng Customer
                     var customer = db.Customers.FirstOrDefault(c => c.NameUser == currentUserName);
                     if (customer != null)
                     {
                         customer.PhoneCus = model.PhoneCus;
                         customer.EmailCus = model.EmailCus;
                         customer.DateOfBirth = model.DateOfBirth;
-                        //customer.Address = model.Address; // Bỏ comment nếu DB đã có
+                        customer.AddressCus = model.AddressCus; 
                     }
 
-                    // 2. Cập nhật bảng AdminUser (Nếu có nhập mật khẩu mới)
+                    // 2. Cập nhật bảng AdminUser
                     if (!string.IsNullOrEmpty(model.NewPassword))
                     {
                         var user = db.AdminUsers.FirstOrDefault(u => u.NameUser == currentUserName);
                         if (user != null)
                         {
-                            user.PasswordUser = model.NewPassword; // Lưu ý: Nên mã hóa pass
+                            user.PasswordUser = model.NewPassword;
                         }
                     }
 

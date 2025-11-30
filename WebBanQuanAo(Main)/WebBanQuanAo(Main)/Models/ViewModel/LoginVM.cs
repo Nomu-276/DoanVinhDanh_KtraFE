@@ -13,7 +13,8 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Tên đăng nhập chỉ được chứa chữ cái, số và dấu gạch dưới")]
         [Display(Name = "Tên đăng nhập")]
         public string NameUser { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
+
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string PasswordUser { get; set; }

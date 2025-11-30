@@ -138,6 +138,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -201,11 +202,9 @@
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Metadata.cs" />
     <Compile Include="Models\PartialClasses.cs" />
-    <Compile Include="Models\ProductSearchCusVM.cs" />
     <Compile Include="Models\ViewModel\CartService.cs" />
     <Compile Include="Models\ViewModel\CheckoutVM.cs" />
     <Compile Include="Models\ViewModel\EditAccountVM.cs" />
-    <Compile Include="Models\ViewModel\HomeProductVM.cs" />
     <Compile Include="Models\ViewModel\LoginVM.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
     <Compile Include="Models\ViewModel\RegisterVM.cs" />
@@ -217,6 +216,7 @@
     <Content Include="Content\Admin\AdLayout.css" />
     <Content Include="Content\Admin\Cart.css" />
     <Content Include="Content\Admin\CDED.css" />
+    <Content Include="Content\Admin\CusLayout.css" />
     <Content Include="Content\Admin\DanhSachSanPham.css" />
     <Content Include="Content\Admin\Detail.css" />
     <Content Include="Content\Admin\HOME.css" />
@@ -358,17 +358,10 @@
     <Content Include="Areas\Admin\Views\Category\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Sizes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\OrderDetailIndexPV.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
@@ -376,20 +369,15 @@
     <Content Include="Areas\Admin\Views\Suppliers\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Colors\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderProes\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderProes\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderProes\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderProes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderProes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\ThongKe.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminUsers\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Details.cshtml" />
     <EntityDeploy Include="Models\Nomie.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Nomie.Designer.cs</LastGenOutput>
@@ -454,7 +442,9 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Order\Checkout.cshtml" />
-    <Content Include="Views\Order\MyOrder.cshtml" />
+    <Content Include="Views\ProductCus\PVListProductCus.cshtml" />
+    <Content Include="Views\HomeCus\MenuDanhmuc.cshtml" />
+    <Content Include="Views\Order\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

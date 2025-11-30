@@ -26,6 +26,7 @@ namespace WebBanQuanAo_Main_.Models
         public string PhoneCus { get; set; }
         public string EmailCus { get; set; }
         public string NameUser { get; set; }
+        public string AddressCus { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderPro> OrderProes { get; set; }

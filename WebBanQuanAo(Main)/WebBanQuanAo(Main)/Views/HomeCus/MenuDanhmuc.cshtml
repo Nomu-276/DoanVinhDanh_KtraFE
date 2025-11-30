@@ -1,0 +1,12 @@
+﻿@model IEnumerable< WebBanQuanAo_Main_.Models.Category>
+    
+<div class="nav-bar-item ">
+    @foreach (var cate in Model)
+{
+
+    <a href="@Url.Action("Index", "ProductCus", new { cateId = cate.IDCate })" class="fm-menu-item">
+        @cate.NameCate
+    </a>
+
+}
+</div>
