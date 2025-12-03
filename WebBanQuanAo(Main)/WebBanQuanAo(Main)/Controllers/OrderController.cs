@@ -32,8 +32,8 @@ namespace WebBanQuanAo_Main_.Controllers
             var cart = GetCart();
             if (cart == null) return RedirectToAction("Index", "Cart");
 
-            // 2. Lấy thông tin khách hàng (Dựa trên Identity Name đang đăng nhập)
-            // Lưu ý: Logic này giả định NameUser trong AdminUser khớp với NameUser trong Customer
+            // 2. Lấy thông tin khách hàng trên tên danh tính đang đăng nhập
+            // Logic này giả định NameUser trong AdminUser khớp với NameUser trong Customer
             var user = db.AdminUsers.SingleOrDefault(u => u.NameUser == User.Identity.Name);
             if (user == null) return RedirectToAction("Login", "Account");
 

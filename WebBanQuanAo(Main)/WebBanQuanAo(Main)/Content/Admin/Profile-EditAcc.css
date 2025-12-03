@@ -1,0 +1,27 @@
+﻿body {
+}
+.profile-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.form-control {
+    border-radius: 0;
+    height: 40px;
+}
+
+.btn-black {
+    background: #000;
+    color: #fff;
+    border-radius: 0;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+}
+
+    .btn-black:hover {
+        color: #ccc;
+        text-decoration: none;
+    }

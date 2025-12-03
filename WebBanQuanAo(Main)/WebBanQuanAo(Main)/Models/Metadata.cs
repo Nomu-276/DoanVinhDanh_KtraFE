@@ -46,6 +46,7 @@ namespace WebBanQuanAo_Main_.Models
         [Display(Name = "Mã danh mục")]
         public string IDCate { get; set; }
         [Display(Name = "Đường dẫn ảnh sản phẩm")]
+        [StringLength(250, ErrorMessage = "Đường dẫn ảnh sản phẩm không được vượt quá 250 ký tự")]
         //[RegularExpression(@"^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|jfif|bmp|webp))$", ErrorMessage = "Vui lòng nhập đúng định dạng URL hình ảnh")]
         //[DefaultValue("~/Content/hinh/default_img.jfif")]
         public string ImagePro { get; set; }

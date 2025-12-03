@@ -5,33 +5,30 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="alert alert-warning text-center text-uppercase" >Danh sách đơn hàng</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
+<table class="table table-responsive">
+    <tr class="row-cols-7">
         <th>
-            @Html.DisplayNameFor(model => model.DateOrder)
+            Ngày đặt
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ShippingAddress)
+            Tổng tiền
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TotalAmount)
+            Phương thức thanh toán
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PaymentMethod)
+            Trạng thái thanh toán
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PaymentStatus)
+            Phương thức vận chuyển
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeliveryMethod)
+            Địa chỉ giao hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.NameCus)
+            Tên khách hàng
         </th>
         <th></th>
     </tr>
@@ -42,10 +39,7 @@
             @Html.DisplayFor(modelItem => item.DateOrder)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShippingAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmount)
+            @string.Format("{0:N0} đ", item.TotalAmount)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PaymentMethod)
@@ -57,12 +51,15 @@
             @Html.DisplayFor(modelItem => item.DeliveryMethod)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.ShippingAddress)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Customer.NameCus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+           
+            @Html.ActionLink("Details", "Details", new { id=item.ID }, new {@class="btn btn-primary"})
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

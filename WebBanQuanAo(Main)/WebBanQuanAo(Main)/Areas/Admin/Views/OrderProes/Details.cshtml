@@ -1,11 +1,11 @@
 ﻿@model WebBanQuanAo_Main_.Models.OrderPro
 
 @{
-    ViewBag.Title = "Đặt hàng thành công";
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
-
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<h2 class="alert alert-success text-center">Xác nhận thanh toán thành công! Cảm ơn quý khách !</h2>
+
+<h2 class="alert bg-success text-center">Xác nhận thanh toán thành công! Cảm ơn quý khách !</h2>
 <div class="container my-5">
     <div class="card mb-4">
         <div class="card-header bg-dark text-white">
@@ -69,11 +69,9 @@
     </div>
 
     <div class="mt-4">
-        <a href="@Url.Action("History", "Order")" class="btn btn-secondary">
-            Quay lại lịch sử
+        <a href="@Url.Action("Index", "OrderProes")" class="btn btn-secondary">
+            Quay lại trang danh sách đơn hàng
         </a>
-        <a href="@Url.Action("Index", "HomeCus")" class="btn btn-primary">
-            Tiếp tục mua sắm
-        </a>
+        
     </div>
 </div>

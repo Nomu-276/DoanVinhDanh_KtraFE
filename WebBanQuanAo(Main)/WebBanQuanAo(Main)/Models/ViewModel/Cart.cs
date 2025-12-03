@@ -15,12 +15,7 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         //danh sach cac san phẩm trong gio hang da duoc nhom theo Category
         public List<IGrouping<string, CartItem>> GroupedItems => items.GroupBy(i => i.Category).ToList();
 
-        // Các thuoc tinh hỗ trợ phan trang
-        public int PageNumber { get; set; } // Trang hiện tại
-        public int PageSize { get; set; } = 6; // Số sản phẩm mỗi trang
-
-        //danh sách các sản phẩm cùng danh mục với các sản phẩm trong giỏ
-        public PagedList.IPagedList<Product> SimilarProducts { get; set; }
+        
 
         // Thêm sản phẩn vào giỏ
         public void AddItem(int productId, string productImage, string productName,

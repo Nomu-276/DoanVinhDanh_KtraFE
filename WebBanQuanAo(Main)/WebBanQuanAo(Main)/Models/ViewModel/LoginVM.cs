@@ -14,7 +14,7 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         [Display(Name = "Tên đăng nhập")]
         public string NameUser { get; set; }
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
-
+        [StringLength(25, MinimumLength = 5, ErrorMessage = "mật khẩu không quá 25 ký tự")]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string PasswordUser { get; set; }

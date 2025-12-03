@@ -17,9 +17,9 @@ namespace WebBanQuanAo_Main_.Controllers
         {
             return new CartService(Session);
         }
-        // Hiển thị giỏ hàng đã gom nhóm sản phẩm theo danh mục
         
-        // Hàm này nhận tham số page để phân trang sản phẩm gợi ý
+        
+        
         public ActionResult Index(int? page)
         {
             var cart = GetCartService().GetCart();
@@ -31,7 +31,7 @@ namespace WebBanQuanAo_Main_.Controllers
         // Đưa quantity = 1 xuống cuối cùng
         public ActionResult AddToCart(int ProductID, string size, string color, int quantity = 1)
         {
-            // Lưu ý: Tôi đã đổi 'int id' thành 'int ProductID' để khớp với name="ProductID" bên file ChiTiet.cshtml
+            
             var product = db.Products.Find(ProductID);
             if (product != null)
             {

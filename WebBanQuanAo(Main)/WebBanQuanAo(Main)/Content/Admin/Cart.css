@@ -3,55 +3,9 @@
     color: #333;
 }
 
-.cart-wrapper {
-    max-width: 1100px;
-    margin-top: 50px !important;
-}
-
-     Tiêu đề chính 
-    .cart-wrapper h1 {
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-    }
-
- Chi tiết sản phẩm 
-.cart-item-detail {
-    border-color: #eee !important;
-}
-
- Điều khiển số lượng 
-.quantity-control-simple .btn-qty {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
-
-.quantity-control-simple span {
-    font-size: 1rem;
-}
-
- CỘT TÓM TẮT 
-.summary-box-simple h2 {
-    letter-spacing: 1px;
-}
-
- Nút thanh toán 
-.btn-dark {
-    background-color: black !important;
-    border-color: black !important;
-    letter-spacing: 0.5px;
-}
-
-    .btn-dark:hover {
-        background-color: #333 !important;
-        border-color: #333 !important;
-    }
-
- Liên kết footer 
-.summary-box-simple a.text-dark:hover {
-    color: #555 !important;
+.hm-img {
+    width: 85%;
+    height: 200px;
+    object-fit: cover;
 }
 

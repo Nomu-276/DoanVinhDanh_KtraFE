@@ -29,12 +29,17 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            OrderPro orderPro = db.OrderProes.Find(id);
-            if (orderPro == null)
+            var order = db.OrderProes
+                  .Include("OrderDetails")
+                  .Include("OrderDetails.Product") // Để lấy tên và ảnh sản phẩm
+                  .Include("Customer") // Để lấy tên khách, địa chỉ
+                  .FirstOrDefault(o => o.ID == id);
+
+            if (order == null)
             {
                 return HttpNotFound();
             }
-            return View(orderPro);
+            return View(order);
         }
 
         // GET: Admin/OrderProes/Create
@@ -49,7 +54,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DateOrder,IDCus,AddressDelivery,TotalAmount,PaymentMethod,PaymentStatus,OrderStatus")] OrderPro orderPro)
+        public ActionResult Create([Bind(Include = "ID,DateOrder,IDCus,TotalAmount,PaymentMethod,PaymentStatus,DeliveryMethod,ShippingAddress")] OrderPro orderPro)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +88,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DateOrder,IDCus,AddressDelivery,TotalAmount,PaymentMethod,PaymentStatus,OrderStatus")] OrderPro orderPro)
+        public ActionResult Edit([Bind(Include = "ID,DateOrder,IDCus,TotalAmount,PaymentMethod,PaymentStatus,DeliveryMethod,ShippingAddress")] OrderPro orderPro)
         {
             if (ModelState.IsValid)
             {

@@ -19,22 +19,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         DBClothingStoreEntities db = new DBClothingStoreEntities();
 
         // GET: Product
-        public ActionResult IndexCustomer(int? cateId)
-        {
-            var products = db.Products.AsQueryable();
-
-            if (cateId != null)
-            {
-                products = products.Where(p => p.IDCate == cateId);
-            }
-
-            ViewBag.Categories = db.Categories.ToList();
-            ViewBag.Suppliers = db.Suppliers.ToList();
-            ViewBag.Colors = db.Colors.ToList();
-            ViewBag.Sizes = db.Sizes.ToList();
-            
-            return View(products.ToList());
-        }
+        
 
 
         public ActionResult Index(string searchTerm , decimal? minPrice, decimal? 
@@ -211,8 +196,7 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         {
 
             try
-            {
-                
+            { 
                 var proDelete = db.Products.Find(id);
                 if (proDelete != null)
                 {

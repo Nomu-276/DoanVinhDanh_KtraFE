@@ -27,7 +27,8 @@ namespace WebBanQuanAo_Main_.Models.ViewModel
         public string ShippingMethod { get; set; }
 
         [Display(Name = "Địa chỉ giao hàng")]
-        public string ShippingAddress { get; set; } // Khớp với OrderPro.cs [cite: 56]
+        [StringLength(150, ErrorMessage = "Địa chỉ không được vượt quá 150 ký tự")]
+        public string ShippingAddress { get; set; } // Khớp với OrderPro.cs
 
         public string Username { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

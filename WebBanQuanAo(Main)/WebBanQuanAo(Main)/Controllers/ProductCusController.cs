@@ -24,8 +24,11 @@ namespace WebBanQuanAo_Main_.Controllers
                 products = products.Where(p => p.NamePro.Contains(searchTerm) ||
                 p.DescriptionPro.Contains(searchTerm) ||
                 p.Category.NameCate.Contains(searchTerm)
+                
                 );
             }
+            // làm menu category trên thanh header
+
             if (cateId != null)
             {
                 products = products.Where(p => p.IDCate == cateId);
@@ -63,7 +66,7 @@ namespace WebBanQuanAo_Main_.Controllers
             // đoạn code liên quan tới phân trang nếu
             // lấy số trang hiện tại (mặc định là 1 nếu không có giá trị)
             int pageNumber = page ?? 1;
-            int pageSize = 20; // số sản phẩm trên mỗi trang
+            int pageSize = 16; // số sản phẩm trên mỗi trang
 
             //đóng lệnh này sử dụng ToPagedList lấy danh sách đã phân trang
 
@@ -71,7 +74,7 @@ namespace WebBanQuanAo_Main_.Controllers
             model.Products = products.ToPagedList(pageNumber, pageSize);
             
 
-            ViewBag.Categories = db.Categories.ToList();
+            //ViewBag.Categories = db.Categories.ToList();
             ViewBag.Suppliers = db.Suppliers.ToList();
             ViewBag.Colors = db.Colors.ToList();
             ViewBag.Sizes = db.Sizes.ToList();

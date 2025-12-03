@@ -17,13 +17,12 @@ namespace WebBanQuanAo_Main_.Areas.Admin.Controllers
         // GET: Category
         public ActionResult DanhSachDanhMuc()
         {
-            // 1. Tải danh sách Categories và bao gồm (Include) cả Products liên quan.
-            // Điều này cho phép Razor View truy cập Category.Products mà không gây lỗi.
+            
             var categories = db.Categories
-                                .Include(c => c.Products) // Tải danh sách sản phẩm liên quan
+                                .Include(c => c.Products)
                                 .ToList();
 
-            // 2. Truyền danh sách categories sang View
+           
             return View(categories);
         }
         

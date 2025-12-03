@@ -3,67 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\controllers\\productcuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\productcuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\views\\shared\\_masterlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\shared\\_masterlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\areas\\admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\controllers\\homecuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\homecuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\areas\\admin\\views\\home\\thongke.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\areas\\admin\\views\\home\\thongke.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\productcus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\productcus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\models\\metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\models\\metadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/DBClothingStore/True/SqlTable/dbo.Product.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\areas\\admin\\views\\customers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\areas\\admin\\views\\customers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\models\\viewmodel\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\models\\viewmodel\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\order\\ordersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\order\\ordersuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\order\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\areas\\admin\\views\\orderproes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\areas\\admin\\views\\orderproes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\views\\order\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\order\\history.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\order\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|c:\\users\\pc\\onedrive\\desktop\\webbanquanao(main)\\webbanquanao(main)\\models\\viewmodel\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\models\\viewmodel\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\webbanquanao(main)\\models\\viewmodel\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5333647A-1B8E-48D0-9AE0-FAD0D4FB91EE}|WebBanQuanAo(Main)\\WebBanQuanAo(Main).csproj|solutionrelative:webbanquanao(main)\\models\\viewmodel\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -72,7 +57,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 701,
+          "DockedWidth": 97,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -82,206 +67,162 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductCusController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\ProductCusController.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\ProductCusController.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\ProductCusController.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\ProductCusController.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAQwFAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T14:36:18.47Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAgwIYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T14:34:04.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeCusController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\HomeCusController.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\HomeCusController.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\HomeCusController.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\HomeCusController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T14:31:15.969Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\CartController.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAwwGAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T14:26:46.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ThongKe.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Home\\ThongKe.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Home\\ThongKe.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Home\\ThongKe.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Home\\ThongKe.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "_MasterLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Shared\\_MasterLayout.cshtml",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Shared\\_MasterLayout.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Shared\\_MasterLayout.cshtml",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Shared\\_MasterLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T14:13:29.43Z",
+              "WhenOpened": "2025-12-02T18:49:05.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAswDoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T12:46:52.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:57:20.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\ProductCus\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\ProductCus\\Index.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\ProductCus\\Index.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\ProductCus\\Index.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACMAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:30:07.396Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Customers\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Customers\\Index.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Customers\\Index.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Customers\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:15:09.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "History.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:04:48.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "OrderSuccess.cshtml",
               "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\OrderSuccess.cshtml",
               "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Order\\OrderSuccess.cshtml",
               "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\OrderSuccess.cshtml",
               "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Order\\OrderSuccess.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:04:20.827Z",
+              "WhenOpened": "2025-12-02T18:02:18.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHMAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T18:15:13.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\OrderProes\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\OrderProes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\OrderProes\\Index.cshtml",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\OrderProes\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-02T18:04:18.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAABIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-02T18:48:48.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "History.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Order\\History.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-02T18:15:26.89Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1344,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Areas\\Admin\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-03T01:00:40.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAADQAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-02T18:09:45.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "dbo.Product [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/DBClothingStore/True/SqlTable/dbo.Product.sql",
-              "ToolTip": "dbo.Product [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-11-30T13:34:55.122Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Metadata.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\Metadata.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Models\\Metadata.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\Metadata.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Models\\Metadata.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAUwDAAAACTAAAAAAAAAA==",
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Controllers\\CartController.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAA9wGMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T13:38:33.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-02T17:49:41.355Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Checkout.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\Checkout.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Order\\Checkout.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Order\\Checkout.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Order\\Checkout.cshtml",
+              "DocumentIndex": 10,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\CartItem.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Models\\CartItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T13:02:30.026Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-30T12:52:14.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "RegisterVM.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\RegisterVM.cs",
-              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Models\\ViewModel\\RegisterVM.cs",
-              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\RegisterVM.cs",
-              "RelativeToolTip": "WebBanQuanAo(Main)\\Models\\ViewModel\\RegisterVM.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwAsAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T12:49:42.599Z",
+              "WhenOpened": "2025-12-02T17:49:47.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\CartService.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Models\\ViewModel\\CartService.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\CartService.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Models\\ViewModel\\CartService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T17:49:44.307Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 947,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\Cart.cs",
+              "RelativeDocumentMoniker": "WebBanQuanAo(Main)\\Models\\ViewModel\\Cart.cs",
+              "ToolTip": "C:\\Users\\PC\\OneDrive\\Desktop\\WebBanQuanAo(Main)\\WebBanQuanAo(Main)\\Models\\ViewModel\\Cart.cs",
+              "RelativeToolTip": "WebBanQuanAo(Main)\\Models\\ViewModel\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T17:49:43.221Z",
               "EditorCaption": ""
             }
           ]

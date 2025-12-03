@@ -142,7 +142,6 @@
     <Compile Include="Areas\Admin\Controllers\ColorsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\OrderDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderProesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\SizesController.cs" />
@@ -221,6 +220,7 @@
     <Content Include="Content\Admin\Detail.css" />
     <Content Include="Content\Admin\HOME.css" />
     <Content Include="Content\Admin\LoginRegister.css" />
+    <Content Include="Content\Admin\Profile-EditAcc.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -361,7 +361,6 @@
     <Content Include="Areas\Admin\Views\Sizes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Sizes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Suppliers\Details.cshtml" />
@@ -371,7 +370,6 @@
     <Content Include="Areas\Admin\Views\Colors\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Colors\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\OrderProes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\ThongKe.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Create.cshtml" />
     <Content Include="Areas\Admin\Views\AdminUsers\Delete.cshtml" />
@@ -385,6 +383,9 @@
     <Content Include="Models\Nomie.edmx.diagram">
       <DependentUpon>Nomie.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\OrderProes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderProes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderProes\Index.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

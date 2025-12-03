@@ -5,10 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2 class="alert alert-warning text-center fs-2 fw-bold text-uppercase" >Danh sách size</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Tạo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.SizeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IDSize }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IDSize }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IDSize })
+            @Html.ActionLink("Sửa", "Edit", new { id=item.IDSize }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id=item.IDSize }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IDSize })
         </td>
     </tr>
 }

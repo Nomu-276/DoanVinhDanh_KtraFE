@@ -61,8 +61,9 @@ namespace WebBanQuanAo_Main_.Controllers
                 db.Customers.Add(customer);
 
                     db.SaveChanges();
-              
-               
+                    return RedirectToAction("Login", "Account");
+
+
                 }
                     
             }
@@ -83,6 +84,7 @@ namespace WebBanQuanAo_Main_.Controllers
         {
             if (ModelState.IsValid)
             {
+                // single tìm thấy duy nhất
                 var user = db.AdminUsers.SingleOrDefault(u => u.NameUser == model.NameUser
                                                       && u.PasswordUser == model.PasswordUser
                                                       && u.RoleUser == "Customer");
@@ -91,6 +93,8 @@ namespace WebBanQuanAo_Main_.Controllers
                 {
                     Session["NameUser"] = user.NameUser;
                     Session["RoleUser"] = user.RoleUser;
+
+                    //lưu thông tin xác thực vào cookie
 
                     FormsAuthentication.SetAuthCookie(user.NameUser, false);
 
@@ -146,9 +150,11 @@ namespace WebBanQuanAo_Main_.Controllers
         {
             if (Session["NameUser"] == null) return RedirectToAction("Login");
 
+            //lấy tên để tìm hồ sơ
             string currentUserName = Session["NameUser"].ToString();
             var customer = db.Customers.FirstOrDefault(c => c.NameUser == currentUserName);
 
+            //với tài khoản không có customer thì trả về trang Index
             if (customer == null) return RedirectToAction("Index", "HomeCus");
 
             var model = new EditAccountVM
@@ -199,9 +205,7 @@ namespace WebBanQuanAo_Main_.Controllers
                     }
 
                     db.SaveChanges();
-                    TempData["SuccessMessage"] = "Cập nhật hồ sơ thành công!";
-
-                    // Load lại trang để thấy thay đổi
+                    
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
